@@ -6,9 +6,9 @@ Everyone should be able to have fun while learning. If you want a plethora of ra
 ![Alt Text](https://c.tenor.com/-lUj_WEFNiMAAAAd/bravo-amazed.gif)
 
 ## Features
-1. fdkajsfkldasjfl;kasdjflk;asdj
-2. fdkalfjdklsa;jfl;kdasjflkasdj
-3. djfkldajflk;adsjldks
+1. An interactive game of hangman!
+2. 
+3. 
 
 
 ## How to Use
