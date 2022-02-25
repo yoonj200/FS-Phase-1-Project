@@ -70,6 +70,20 @@ window.onload = function () { // execute function after page loads
       }
     }
      
+    // Display attempts (lives)
+    comments = function () {
+      showLives.innerHTML = "You have " + lives + " attempts!";
+      if (lives < 1) {
+        showLives.innerHTML = "GAME OVER";
+      }
+      // for (var i = 0; i < guesses.length; i++) {  ----> unnecessary
+        if (counter + space === guesses.length) {
+          // showLives.innerHTML = "YOU WIN! <br />" /*+ "Random Fact: " + fetchFact()*/;
+          loadJSON('https://uselessfacts.jsph.pl/random.json?language=en', displayGameOverSuccess, errorFetchingQuote)
+        }
+      // }
+    }
+   
     
    
   } // end function
