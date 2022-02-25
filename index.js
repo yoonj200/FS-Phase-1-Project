@@ -143,6 +143,40 @@ window.onload = function () { // execute function after page loads
       showClue.innerHTML = "HINT: " +  hints [topicIndex][hintIndex];
     }
        
+    // Generate random fact IF YOU WIN -------------------------------------------------------------------------------------
+    // API URL: https://uselessfacts.jsph.pl/random.json?language=en
+    // API Documentation: https://uselessfacts.jsph.pl/
+    // Read JSON file from URL https://www.educative.io/edpresso/how-to-read-a-json-file-from-a-url-in-javascript
+    // Might be better off using jquery next time... this is really complicated
+    // Libraries over natives ---> "libraries are better at cross-browser stuff"
+    function loadJSON(path, success, error) { // success and error are callback functions
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            success(JSON.parse(xhr.responseText));
+          }
+          else {
+            error(xhr);
+          }
+        }
+      };
+      xhr.open('GET', path, true);
+      xhr.send();
+    }
+    function displayGameOverSuccess(data) {
+      // console.log('YOU WIN! Here\'s your prize: <br/>' + data['text'])
+      showLives.innerHTML = 'YOU WIN! Here\'s your prize: <br/>' + data['text']
+      // console.log(data.text)
+      console.log(data['text'])
+    }
+    function errorFetchingQuote(data) {
+      console.log('Unable to fetch random quote')
+      showLives.innerHTML = 'Unable to fetch random quote'
+      // console.log(data)
+    }
+      //--------------------------------------------------------------------------------------------------------------------
+
     // Reset (play again)
     document.getElementById('reset').onclick = function() {
       correct.parentNode.removeChild(correct);
