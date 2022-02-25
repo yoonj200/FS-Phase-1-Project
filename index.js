@@ -12,7 +12,12 @@ window.onload = function () { // execute function after page loads
     var counter;        // Count correct guesses
     var space;          // Number of spaces in word '-'
    
-    
+    // Get elements from HTML
+    var showLives = document.getElementById("mylives");
+    var showTopic = document.getElementById("stopic");
+    var getHint = document.getElementById("hint");
+    var showClue = document.getElementById("clue");
+  
    
   } // end function
   
