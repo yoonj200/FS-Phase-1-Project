@@ -18,7 +18,7 @@ window.onload = function () { // execute function after page loads
     var getHint = document.getElementById("hint");
     var showClue = document.getElementById("clue");
    
-    // create alphabet ul
+    // Create alphabet ul
     var buttons = function () {
       myButtons = document.getElementById('buttons');
       letters = document.createElement('ul');
@@ -34,6 +34,20 @@ window.onload = function () { // execute function after page loads
       }
     }
        
+    // Topic selector
+    var selectTopic = function () {
+      if (chosenTopic === topics[0]) {
+        topicName.innerHTML = "WORD TOPIC: Premier League Football Teams";
+        console.log("WORD TOPIC: Premier League Football Teams")
+      } else if (chosenTopic === topics[1]) {
+        topicName.innerHTML = "WORD TOPIC: Films";
+        console.log("WORD TOPIC: Films")
+      } else if (chosenTopic === topics[2]) {
+        topicName.innerHTML = "WORD TOPIC: Cities";
+        console.log("WORD TOPIC: Cities")
+      }
+    }
+   
     
    
   } // end function
