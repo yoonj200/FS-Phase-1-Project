@@ -38,4 +38,16 @@ p {
     font-size: 1.5em;
 }
  
+#alphabet {
+    margin: 15px auto;
+    padding: 0;
+    max-width: 900px;
+}
+ 
+#alphabet:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+ 
 
