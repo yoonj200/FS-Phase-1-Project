@@ -50,4 +50,27 @@ p {
     clear: both;
 }
  
+#alphabet li {
+    float: left;
+    margin: 0 10px 10px 0;
+    list-style: none;
+    width: 35px;
+    height: 30px;
+    padding-top: 10px;
+    background: #fff;
+    color: #0052a7;
+    cursor: pointer;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border: solid 1px #fff;
+}
+ 
+#alphabet li:hover {
+    background: #0052a7;
+    border: solid 1px #fff;
+    color: #fff;
+}
+ 
 
