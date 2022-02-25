@@ -84,6 +84,28 @@ window.onload = function () { // execute function after page loads
       // }
     }
    
+    // OnClick Function
+    check = function () {
+      list.onclick = function () {
+        var guess = (this.innerHTML);
+        this.setAttribute("class", "active");
+        this.onclick = null;
+          for (var i = 0; i < word.length; i++) {
+            if (word[i] === guess) {
+              guesses[i].innerHTML = guess;
+              counter += 1;
+            }
+          }
+        var j = (word.indexOf(guess));
+          if (j === -1) {
+            lives -= 1;
+            comments();
+          } else {
+            comments();
+          }
+        }
+      }
+     
     
    
   } // end function
