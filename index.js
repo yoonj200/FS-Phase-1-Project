@@ -106,6 +106,30 @@ window.onload = function () { // execute function after page loads
         }
       }
      
+    // Play
+    play = function () {
+      topics = [
+        ["everton", "liverpool", "swansea", "chelsea", "hull", "manchester-city", "newcastle-united"],
+        ["alien", "dirty-harry", "gladiator", "finding-nemo", "jaws"],
+        ["manchester", "milan", "madrid", "amsterdam", "prague"]
+      ]; // array of 3 topics, each with their own words
+   
+      chosenTopic = topics[Math.floor(Math.random() * topics.length)];
+      word = chosenTopic[Math.floor(Math.random() * chosenTopic.length)];
+      word = word.replace(/\s/g, "-");
+      console.log(word);
+      buttons();
+   
+      guesses = [];
+      lives = 5;
+      counter = 0;
+      space = 0;
+      result();
+      comments();
+      selectTopic();
+    }
+    play();
+     
     
    
   } // end function
