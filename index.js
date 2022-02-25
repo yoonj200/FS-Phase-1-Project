@@ -142,7 +142,14 @@ window.onload = function () { // execute function after page loads
       var hintIndex = chosenTopic.indexOf(word);
       showClue.innerHTML = "HINT: " +  hints [topicIndex][hintIndex];
     }
-   
+       
+    // Reset (play again)
+    document.getElementById('reset').onclick = function() {
+      correct.parentNode.removeChild(correct);
+      letters.parentNode.removeChild(letters);
+      showClue.innerHTML = "";
+      play();
+    }
    
   } // end function
   
