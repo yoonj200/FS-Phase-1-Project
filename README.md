@@ -1,7 +1,7 @@
-# The SnApple Game (not really, please don't sue!)
+# SnApple (but it's a game)
 ----> SnApp?
 ## Project Philosophy
-Everyone should be able to learn something while having fun. If you want a plethora of random facts that may or may not be useful in a game of jeopardy, this is the app for you!
+Everyone should be able to learn something while having fun. If you want to be ready for a random game of jeopardy, this is the app for you!
 
 ![Alt Text](https://c.tenor.com/-lUj_WEFNiMAAAAd/bravo-amazed.gif)
 
@@ -21,3 +21,5 @@ Everyone should be able to learn something while having fun. If you want a pleth
 - 
 - 
 - 
+
+<span style="color:gray">NOTE: This app is a single page application (SPA)</span> 

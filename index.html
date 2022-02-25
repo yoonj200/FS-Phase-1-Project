@@ -1,16 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>SnApple Game</title>
+        <!-- Links to index.js and styles.css -->
+        <script type="text/javascript" src="index.js"></script>
+        <link rel="stylesheet" href="styles.css">
+        <!-- charset defines character encoding for whole web page -->
+        <!-- name defines additional information attached to web page -->
+        <!-- content defines metadata content; varies according to name or http-equiv value -->
+        <!-- http-equiv defines meta rules for web page -->
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Bored? Game</title>
     </head>
+
     <body>
+        <!-- Headers & Instructions -->
         <div class="wrapper">
-            <h1>Hangman</h1>
-            <h2>Vanilla JavaScript Hangman Game</h2>
-            <p>Use the alphabet below to guess the word, or click hint to get a clue. </p>
+            <h1>Bored?</h1>
+            <h2>Learn something new today!</h2>
+            <p>Use the letter bank to guess the word. Ask for a Hint if you're stuck! </p>
+        </div>
+        <!-- Buttons & Game -->
+        <div class="wrapper">
+            <div id="buttons"></div>  
+            <p id="topicName"></p>
+            <div id="hold"></div>
+            <p id="mylives"></p>
+            <p id="clue">Need a Hint? Click the Hint button!</p>  
+            <canvas id="stickman">This text appears if the browser does NOT support HTML5 Canvas tag</canvas>
+            <div class="container">
+                <button id="hint">Hint</button>
+                <button id="reset">Play again</button>
+            </div>
         </div>
     </body>
 </html>
