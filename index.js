@@ -130,7 +130,19 @@ window.onload = function () { // execute function after page loads
     }
     play();
      
-    
+    // Hint
+    hint.onclick = function() {
+      hints = [
+        ["Based in Mersyside", "Based in Mersyside", "First Welsh team to reach the Premier Leauge", "Owned by A russian Billionaire", "Once managed by Phil Brown", "2013 FA Cup runners up", "Gazza's first club"],
+        ["Science-Fiction horror film", "1971 American action film", "Historical drama", "Animated Fish", "Giant great white shark"],
+        ["Northern city in the UK", "Home of AC and Inter", "Spanish capital", "Netherlands capital", "Czech Republic capital"]
+      ];
+   
+      var topicIndex = topics.indexOf(chosenTopic);
+      var hintIndex = chosenTopic.indexOf(word);
+      showClue.innerHTML = "HINT: " +  hints [topicIndex][hintIndex];
+    }
+   
    
   } // end function
   
