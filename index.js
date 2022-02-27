@@ -1,24 +1,20 @@
-window.onload = function () { // execute function after page loads
-    // Declaring variables globally
+window.onload = function () {
     var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
                       'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
     var topics;         // Array of topics
     var chosenTopic;    // Selected topic
-    var getHint;        // Word getHint
     var word;           // Selected word
     var guess;          // Guess
     var guesses = [];   // Stored guesses
-    var lives;          // Lives
+    var lives;          // Attempts
     var counter;        // Count correct guesses
     var space;          // Number of spaces in word '-'
    
-    // Get elements from HTML
+    // Get HTML elements by ID ------------------------------------------------------------------------------------------
     var showLives = document.getElementById("mylives");
-    var showTopic = document.getElementById("stopic");
-    var getHint = document.getElementById("hint");
     var showClue = document.getElementById("clue");
    
-    // Create alphabet ul
+    // Create alphabet ul ------------------------------------------------------------------------------------------
     var buttons = function () {
       myButtons = document.getElementById('buttons');
       letters = document.createElement('ul');
@@ -34,11 +30,11 @@ window.onload = function () { // execute function after page loads
       }
     }
        
-    // Topic selector
+    // Topic selector ------------------------------------------------------------------------------------------
     var selectTopic = function () {
       if (chosenTopic === topics[0]) {
-        topicName.innerHTML = "WORD TOPIC: Premier League Football Teams";
-        console.log("WORD TOPIC: Premier League Football Teams")
+        topicName.innerHTML = "WORD TOPIC: Historical Figures";
+        console.log("WORD TOPIC: Historical Figures")
       } else if (chosenTopic === topics[1]) {
         topicName.innerHTML = "WORD TOPIC: Films";
         console.log("WORD TOPIC: Films")
@@ -48,7 +44,7 @@ window.onload = function () { // execute function after page loads
       }
     }
    
-    // Create guesses ul
+    // Create guesses ul ------------------------------------------------------------------------------------------
     result = function () {
       wordHolder = document.getElementById('hold');
       correct = document.createElement('ul');
@@ -70,21 +66,18 @@ window.onload = function () { // execute function after page loads
       }
     }
      
-    // Display attempts (lives)
+    // Display attempts (lives) & Win/Lose Prompts ------------------------------------------------------------
     comments = function () {
       showLives.innerHTML = "You have " + lives + " attempts!";
       if (lives < 1) {
-        showLives.innerHTML = "GAME OVER";
+        showLives.innerHTML = "GAME OVER! Try again!";
       }
-      // for (var i = 0; i < guesses.length; i++) {  ----> unnecessary
-        if (counter + space === guesses.length) {
-          // showLives.innerHTML = "YOU WIN! <br />" /*+ "Random Fact: " + fetchFact()*/;
-          loadJSON('https://uselessfacts.jsph.pl/random.json?language=en', displayGameOverSuccess, errorFetchingQuote)
-        }
-      // }
+      if (counter + space === guesses.length) {
+        loadJSON('https://uselessfacts.jsph.pl/random.json?language=en', displayGameOverSuccess, errorFetchingQuote)
+      }
     }
    
-    // OnClick Function
+    // OnClick Function ------------------------------------------------------------------------------------------
     check = function () {
       list.onclick = function () {
         var guess = (this.innerHTML);
@@ -106,13 +99,13 @@ window.onload = function () { // execute function after page loads
         }
       }
      
-    // Play
+    // Play ------------------------------------------------------------------------------------------
     play = function () {
       topics = [
-        ["everton", "liverpool", "swansea", "chelsea", "hull", "manchester-city", "newcastle-united"],
-        ["alien", "dirty-harry", "gladiator", "finding-nemo", "jaws"],
-        ["manchester", "milan", "madrid", "amsterdam", "prague"]
-      ]; // array of 3 topics, each with their own words
+        ["alexander-the-great", "napoleon-bonaparte", "catherine-the-great", "marcus-aurelius", "abraham-lincoln", "grace-kelly", "akihito"],
+        ["alien", "dirty-harry", "gone-with-the-wind", "finding-nemo", "forrest-gump"],
+        ["taipei", "milan", "madrid", "amsterdam", "prague"] 
+      ];
    
       chosenTopic = topics[Math.floor(Math.random() * topics.length)];
       word = chosenTopic[Math.floor(Math.random() * chosenTopic.length)];
@@ -130,12 +123,17 @@ window.onload = function () { // execute function after page loads
     }
     play();
      
-    // Hint
+    // Hint ------------------------------------------------------------------------------------------
     hint.onclick = function() {
       hints = [
-        ["Based in Mersyside", "Based in Mersyside", "First Welsh team to reach the Premier Leauge", "Owned by A russian Billionaire", "Once managed by Phil Brown", "2013 FA Cup runners up", "Gazza's first club"],
-        ["Science-Fiction horror film", "1971 American action film", "Historical drama", "Animated Fish", "Giant great white shark"],
-        ["Northern city in the UK", "Home of AC and Inter", "Spanish capital", "Netherlands capital", "Czech Republic capital"]
+        ["His empire stretched from Macedonia to Egypt <br/> and from Greece to part of India", "French Emperor from 1804 to 1814", 
+          "Empress of Russia for nearly 35 years", "Stoic philosopher and last emperor of the Pax Romana", 
+          "16th President of the United States of America", "An early 20th-century American actress who became the Princess of Monaco", 
+          "Japan's first emperor to abdicate the throne since 1817"],
+        ["1979 Sci-fi horror film", "\"Go ahead. Make my day.\"", "\"Frankly, my dear, I don't give a damn.\"", "\"Fish are friends, not food.\"", 
+         "\"I'm pretty tired... I think I'll go home now.\""],
+        ["Known for its Shilin market", "The global capital of fashion and design", "Home of the Prado Museum", "Home fo the Van Gogh Museum", 
+         "Known for its medieval Astronomical Clock "]
       ];
    
       var topicIndex = topics.indexOf(chosenTopic);
@@ -143,13 +141,13 @@ window.onload = function () { // execute function after page loads
       showClue.innerHTML = "HINT: " +  hints [topicIndex][hintIndex];
     }
        
-    // Generate random fact IF YOU WIN -------------------------------------------------------------------------------------
+    // Generate random fact IF YOU WIN ----------------------------------------------------------------------------------
     // API URL: https://uselessfacts.jsph.pl/random.json?language=en
     // API Documentation: https://uselessfacts.jsph.pl/
-    // Read JSON file from URL https://www.educative.io/edpresso/how-to-read-a-json-file-from-a-url-in-javascript
-    // Might be better off using jquery next time... this is really complicated
-    // Libraries over natives ---> "libraries are better at cross-browser stuff"
-    function loadJSON(path, success, error) { // success and error are callback functions
+    // How to Read JSON file from URL https://www.educative.io/edpresso/how-to-read-a-json-file-from-a-url-in-javascript
+      // Might be better off using jquery next time... this is kinda complicated
+      // Libraries over natives ---> "libraries are better at cross-browser stuff"
+    function loadJSON(path, success, error) {
       var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
@@ -165,19 +163,15 @@ window.onload = function () { // execute function after page loads
       xhr.send();
     }
     function displayGameOverSuccess(data) {
-      // console.log('YOU WIN! Here\'s your prize: <br/>' + data['text'])
-      showLives.innerHTML = 'YOU WIN! Here\'s your prize: <br/>' + data['text']
-      // console.log(data.text)
-      console.log(data['text'])
+      showLives.innerHTML = 'YOU WIN! Here\'s your random fact: <br/>' + data['text']
+      console.log('YOU WIN! Here\'s your random fact: ' + data['text'])
     }
     function errorFetchingQuote(data) {
-      console.log('Unable to fetch random quote')
-      showLives.innerHTML = 'Unable to fetch random quote'
-      // console.log(data)
+      console.log('Unable to fetch random fact')
+      showLives.innerHTML = 'Sorry, we\'re unable to fetch a random fact.'
     }
-      //--------------------------------------------------------------------------------------------------------------------
 
-    // Reset (play again)
+    // Reset (play again) ------------------------------------------------------------------------------------------
     document.getElementById('reset').onclick = function() {
       correct.parentNode.removeChild(correct);
       letters.parentNode.removeChild(letters);

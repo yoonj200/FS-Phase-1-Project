@@ -6,9 +6,9 @@ Everyone should be able to learn something while having fun. If you want to be r
 ![Alt Text](https://c.tenor.com/-lUj_WEFNiMAAAAd/bravo-amazed.gif)
 
 ## Features
-1. An interactive game of hangman!
-2. Upon success, returns a random fact.
-3. Upon failure, returns a prompt to try again.
+1. An interactive game of hangman! Click the letters to try and guess the word.
+2. Upon a successful guess, the game returns a random (and often insightful) fact.
+3. Upon a failed guess, the game returns a prompt to try again.
 
 
 ## How to Play
