@@ -1,6 +1,6 @@
 /* body text */
 body { 
-    background: #f1af00;
+    background: #636f65;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
     color: rgb(255, 255, 255);
     height: 100%;
@@ -9,7 +9,7 @@ body {
 }
 /* <element class="wrappper"> */
 .wrappper {
-    width: 75%;
+    width: 100%;
     margin: 0 auto;
 }
 /* 'after' inserts after content of selected element 'wrapper' */
@@ -60,10 +60,7 @@ p {
     background: #fff;
     color: #0052a7;
     cursor: pointer;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     border-radius: 5px;
-    -khtml-border-radius: 5px;
     border: solid 1px #fff;
 }
  
@@ -116,11 +113,8 @@ p {
 }
 /* Hint and Play Again buttons */
 button {
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     border-radius: 5px;
-    -khtml-border-radius: 5px;
-    background: #e9cc4b;
+    background: #636f65;
     color: #fff;
     border: solid 1px #fff;
     text-decoration: none;
@@ -133,10 +127,20 @@ button {
 }
  
 button:hover {
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     background: #fff;
     border: solid 1px #fff;
     color: #0052a7;
 }
+/* 
+#clue {
+    border-radius: 5px;
+    background: #636f65;
+    color: #fff;
+    border: solid 1px #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 18px 10px;
+    margin: 10px;
+    outline: none;
+} */
