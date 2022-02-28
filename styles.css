@@ -1,5 +1,5 @@
 /* body text */
-body {
+body { 
     background: #f1af00;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
     color: rgb(255, 255, 255);
@@ -7,12 +7,12 @@ body {
     text-align: center;
     font-size: 18px;
 }
- 
+/* <element class="wrappper"> */
 .wrappper {
-    width: 100%;
+    width: 75%;
     margin: 0 auto;
 }
- 
+/* 'after' inserts after content of selected element 'wrapper' */
 .wrappper:after {
     content: "";
     display: table;
@@ -27,7 +27,7 @@ h1, h2, h3 {
 }
  
 h1 {
-    font-size: 2.6em;
+    font-size: 2.6em; /* 'em' is a relative measurement depending on its parent */
 }
  
 h2 {
@@ -92,8 +92,8 @@ p {
 .active {
     opacity: 0.4;
     filter: alpha(opacity=40);
-    transition: all 1s ease-in;
-    transition: all 0.3s ease-in-out;
+    transition: all 1s ease-in; /* 'ease-in' specifies a transition effect with a slow start */
+    transition: all 0.3s ease-in-out; /* 'ease-in-out' specifies a transition effect with a slow start and end */
     transition: all 0.3s ease-in-out;
     cursor: default;
 }
@@ -139,16 +139,4 @@ button:hover {
     background: #fff;
     border: solid 1px #fff;
     color: #0052a7;
-}
-/* Experimenting with @media CSS rule... */
-/* @media (max-width: 767px) {
-    #alphabet {
-        padding: 0 0 0 15px;
-   }
-}
- 
-@media (max-width: 480px) {
-    #alphabet {
-        padding: 0 0 0 25px;
-   }
 }
