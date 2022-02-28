@@ -73,7 +73,7 @@ window.onload = function () {
         showLives.innerHTML = "GAME OVER! Try again!";
       }
       if (counter + space === guesses.length) {
-        loadJSON('https://uselessfacts.jsph.pl/random.json?language=en', displayGameOverSuccess, errorFetchingQuote)
+        loadJSON('https://uselessfacts.jsph.pl/random.json?language=en', displayGameOverSuccess, errorFetchingFact)
       }
     }
    
@@ -166,9 +166,9 @@ window.onload = function () {
       showLives.innerHTML = 'YOU WIN! Here\'s your random fact: <br/>' + data['text']
       console.log('YOU WIN! Here\'s your random fact: ' + data['text'])
     }
-    function errorFetchingQuote(data) {
-      console.log('Unable to fetch random fact')
+    function errorFetchingFact(data) {
       showLives.innerHTML = 'Sorry, we\'re unable to fetch a random fact.'
+      console.log('Unable to fetch random fact')
     }
 
     // Reset (play again) ------------------------------------------------------------------------------------------

@@ -76,7 +76,7 @@ window.onload = function () { // onload executes function immediately after page
         showLives.innerHTML = "GAME OVER! Try again!"; // if lives (attempts) falls below 1, showLives displays this prompt
       }
       if (counter + space === guesses.length) { // if counter (92) and space (61) equal the length of the 'guesses' array 
-        loadJSON('https://uselessfacts.jsph.pl/random.json?language=en', displayGameOverSuccess, errorFetchingQuote) // (153), (168), (172)
+        loadJSON('https://uselessfacts.jsph.pl/random.json?language=en', displayGameOverSuccess, errorFetchingFact) // (153), (168), (172)
       }
     }
    
@@ -148,39 +148,39 @@ window.onload = function () { // onload executes function immediately after page
     // API URL: https://uselessfacts.jsph.pl/random.json?language=en
     // API Documentation: https://uselessfacts.jsph.pl/
     // How to Read JSON file from URL https://www.educative.io/edpresso/how-to-read-a-json-file-from-a-url-in-javascript
-        // Might be better off using jquery next time... this is really complicated
+        // Learn how to use jquery for next time - this is complicated and NOT ideal
         // Libraries over natives ---> "libraries are better at cross-browser stuff"
     function loadJSON(path, success, error) { // loadJSON reads contents of a JSON file or URL and returns it as an object (URL @ 79)
       var xhr = new XMLHttpRequest(); // XHR interacts with servers, retrieves URL data without a full page refresh. 
                                       // Enables a Web page to update just part of a page without disrupting what the user is doing.
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-          if (xhr.status === 200) {
-            success(JSON.parse(xhr.responseText));
-          }
+      xhr.onreadystatechange = function () { // onreadystatechange property defines a function to be executed when the readyState changes
+        if (xhr.readyState === 4) { // readyState: 4: request finished and response is ready
+          if (xhr.status === 200) { // status: 200: "OK" ---> response is ready
+            success(JSON.parse(xhr.responseText)); // JSON.parse converts JSON string into object
+          } // responseText returns server text after request is sent
           else {
-            error(xhr);
+            error(xhr); // creates error object
           }
         }
       };
-      xhr.open('GET', path, true);
-      xhr.send();
+      xhr.open('GET', path, true); // initializes a newly-created request, or re-initializes an existing one
+      xhr.send(); // sends the request to the server
     }
     function displayGameOverSuccess(data) {
-      showLives.innerHTML = 'YOU WIN! Here\'s your random fact: <br/>' + data['text']
+      showLives.innerHTML = 'YOU WIN! Here\'s your random fact: <br/>' + data['text'] // displays win text + 'text' key's value
       console.log('YOU WIN! Here\'s your random fact: ' + data['text'])
     }
-    function errorFetchingQuote(data) {
-      console.log('Unable to fetch random fact')
+    function errorFetchingFact(data) {
       showLives.innerHTML = 'Sorry, we\'re unable to fetch a random fact.'
+      console.log('Unable to fetch random fact')
     }
 
     // Reset (play again) ------------------------------------------------------------------------------------------
-    document.getElementById('reset').onclick = function() {
-      correct.parentNode.removeChild(correct);
-      letters.parentNode.removeChild(letters);
-      showClue.innerHTML = "";
-      play();
+    document.getElementById('reset').onclick = function() { // assigns click event to Play Again button
+      correct.parentNode.removeChild(correct); // (53) removeChild() removes a child node from the DOM and returns the removed node
+      letters.parentNode.removeChild(letters); // (23)
+      showClue.innerHTML = ""; // (18)
+      play(); // 106
     }
    
   } // end
