@@ -9,6 +9,8 @@ Everyone should be able to learn something while having fun. If you want to be r
 1. An interactive game of hangman! Click the letters to try and guess the word.
 2. Upon a successful guess, the game returns a random (and often insightful) fact.
 3. Upon a failed guess, the game returns a prompt to try again.
+4. You may ask for one hint per game.
+5. You have five attempts per game.
 
 
 ## How to Play
