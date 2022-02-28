@@ -129,10 +129,9 @@ window.onload = function () { // onload executes function immediately after page
     // Hint ------------------------------------------------------------------------------------------
     hint.onclick = function() { // function executes when button is clicked
         hints = [
-            ["Last true pharaoh of Egypt", "French Emperor from 1804 to 1814", 
-          "Led Rome\'s armies in the Gallic Wars before defeating Pompey in a civil war", 
-          "16th President of the United States of America", "An early 20th-century American actress who became the Princess of Monaco", 
-          "Japan's first emperor to abdicate the throne since 1817"],,
+            ["Last true pharaoh of Egypt", "French Emperor from 1804 to 1814", "Led Rome\'s armies in the Gallic Wars", 
+                "16th President of the United States of America", "An early 20th-century American actress who became the Princess of Monaco", 
+                "Japan's first emperor to abdicate the throne since 1817"],,
             ["1979 Sci-fi horror film", "\"Go ahead. Make my day.\"", "\"Frankly, my dear, I don't give a damn.\"", 
                 "\"Fish are friends, not food.\"", "\"I'm pretty tired... I think I'll go home now.\""],
             ["Known for its Shilin market", "The global capital of fashion and design", "Home of the Prado Museum", 
