@@ -58,14 +58,14 @@ p {
     height: 30px;
     padding-top: 10px;
     background: #fff;
-    color: #0052a7;
+    color: #00462B;
     cursor: pointer;
     border-radius: 5px;
     border: solid 1px #fff;
 }
  
 #alphabet li:hover {
-    background: #0052a7;
+    background: #00462B;
     border: solid 1px #fff;
     color: #fff;
 }
@@ -130,17 +130,5 @@ button:hover {
     transition: all 0.3s ease-in-out;
     background: #fff;
     border: solid 1px #fff;
-    color: #0052a7;
+    color: #00462B;
 }
-/* 
-#clue {
-    border-radius: 5px;
-    background: #636f65;
-    color: #fff;
-    border: solid 1px #fff;
-    text-decoration: none;
-    font-size: 1.2em;
-    padding: 18px 10px;
-    margin: 10px;
-    outline: none;
-} */
