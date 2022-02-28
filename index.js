@@ -102,9 +102,9 @@ window.onload = function () {
     // Play ------------------------------------------------------------------------------------------
     play = function () {
       topics = [
-        ["alexander-the-great", "napoleon-bonaparte", "catherine-the-great", "marcus-aurelius", "abraham-lincoln", "grace-kelly", "akihito"],
-        ["alien", "dirty-harry", "gone-with-the-wind", "finding-nemo", "forrest-gump"],
-        ["taipei", "milan", "madrid", "amsterdam", "prague"] 
+        ["cleopatra", "napoleon-bonaparte", "julius-caesar", "marcus-aurelius", "abraham-lincoln", "grace-kelly", "akihito"],
+        // ["alien", "dirty-harry", "gone-with-the-wind", "finding-nemo", "forrest-gump"],
+        // ["taipei", "milan", "madrid", "amsterdam", "prague"] 
       ];
    
       chosenTopic = topics[Math.floor(Math.random() * topics.length)];
@@ -126,8 +126,8 @@ window.onload = function () {
     // Hint ------------------------------------------------------------------------------------------
     hint.onclick = function() {
       hints = [
-        ["His empire stretched from Macedonia to Egypt <br/> and from Greece to part of India", "French Emperor from 1804 to 1814", 
-          "Empress of Russia for nearly 35 years", "Stoic philosopher and last emperor of the Pax Romana", 
+        ["Last true pharaoh of Egypt", "French Emperor from 1804 to 1814", 
+          "Led Rome\'s armies in the Gallic Wars before defeating Pompey in a civil war", 
           "16th President of the United States of America", "An early 20th-century American actress who became the Princess of Monaco", 
           "Japan's first emperor to abdicate the throne since 1817"],
         ["1979 Sci-fi horror film", "\"Go ahead. Make my day.\"", "\"Frankly, my dear, I don't give a damn.\"", "\"Fish are friends, not food.\"", 
@@ -168,7 +168,7 @@ window.onload = function () {
     }
     function errorFetchingFact(data) {
       showLives.innerHTML = 'Sorry, we\'re unable to fetch a random fact.'
-      console.log('Unable to fetch random fact')
+      console.log(data)
     }
 
     // Reset (play again) ------------------------------------------------------------------------------------------

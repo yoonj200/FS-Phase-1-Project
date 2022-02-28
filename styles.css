@@ -114,7 +114,7 @@ p {
     text-align: center;
     display: block;
 }
- 
+/* Hint and Play Again buttons */
 button {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
