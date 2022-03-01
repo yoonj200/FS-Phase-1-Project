@@ -1,7 +1,7 @@
 /* body text */
 body { 
-    background: #636f65;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
+    background: #005e76;
+    font-family: Helvetica, Arial, sans-serif;
     color: rgb(255, 255, 255);
     height: 100%;
     text-align: center;
@@ -39,18 +39,17 @@ p {
 }
  
 #alphabet {
-    margin: 15px auto;
-    padding: 0;
-    max-width: 700px;
+    margin: auto; /* centers letter bank */
+    max-width: 650px; /* width of letter bank */
 }
  
 #alphabet:after {
-    content: "";
+    content: ""; /* replaces with "" */
     display: table;
     clear: both;
 }
  
-#alphabet li {
+#alphabet li { /*alphabet buttons*/
     float: left;
     margin: 0 10px 10px 0;
     list-style: none;
@@ -58,14 +57,14 @@ p {
     height: 30px;
     padding-top: 10px;
     background: #fff;
-    color: #00462B;
+    color: #005e76; 
     cursor: pointer;
     border-radius: 15px;
     border: solid 1px #fff;
 }
  
 #alphabet li:hover {
-    background: #00462B;
+    background: #005e76;
     border: solid 1px #fff;
     color: #fff;
 }
@@ -114,7 +113,7 @@ p {
 /* Hint and Play Again buttons */
 button {
     border-radius: 50px;
-    background: #636f65;
+    background: #005e76;
     color: #fff;
     border: solid 1px #fff;
     text-decoration: none;
@@ -130,5 +129,5 @@ button:hover {
     transition: all 0.5s ease-in-out;
     background: #fff;
     border: solid 1px #fff;
-    color: #00462B;
+    color: #003f4e;
 }
