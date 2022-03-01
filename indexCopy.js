@@ -23,7 +23,7 @@ window.onload = function () { // onload executes function immediately after page
       letters = document.createElement('ul');         // declares variable 'letters' to create HTML element 'ul'
    
       for (var i = 0; i < alphabet.length; i++) { // iterates through 'alphabet' array
-        letters.id = 'alphabet'; // sets 'alphabet' ID for letters variable (23)
+        letters.id = 'alphabet'; // sets 'alphabet' ID for 'letters' variable (23)
         list = document.createElement('li'); // declares 'list' varialbe that creates HTML element 'li'
         list.id = 'letter'; // sets 'letter' ID for 'list' variable 
         list.innerHTML = alphabet[i]; // sets HTML for 'list' variable as each 'alphabet' array element
@@ -130,12 +130,12 @@ window.onload = function () { // onload executes function immediately after page
     hint.onclick = function() { // function executes when button is clicked
         hints = [
             ["Last true pharaoh of Egypt", "French Emperor from 1804 to 1814", "Led Rome\'s armies in the Gallic Wars", 
-                "16th President of the United States of America", "An early 20th-century American actress who became the Princess of Monaco", 
-                "Japan's first emperor to abdicate the throne since 1817"],,
+              "16th President of the United States of America", "An early 20th-century American actress who became the Princess of Monaco", 
+              "Japan's first emperor to abdicate the throne since 1817"],,
             ["1979 Sci-fi horror film", "\"Go ahead. Make my day.\"", "\"Frankly, my dear, I don't give a damn.\"", 
-                "\"Fish are friends, not food.\"", "\"I'm pretty tired... I think I'll go home now.\""],
+              "\"Fish are friends, not food.\"", "\"I'm pretty tired... I think I'll go home now.\""],
             ["Known for its Shilin market", "The global capital of fashion and design", "Home of the Prado Museum", 
-                "Home fo the Van Gogh Museum", "Known for its medieval Astronomical Clock "]
+              "Home of the Van Gogh Museum", "Known for its medieval Astronomical Clock "]
           ]; // array of hint categories (nested arrays), respective 'topics' array 
    
       var topicIndex = topics.indexOf(chosenTopic); // returns position of first occurrence of 'chosenTopic' in 'topics' array

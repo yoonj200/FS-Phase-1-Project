@@ -127,11 +127,11 @@ window.onload = function () {
     hint.onclick = function() {
       hints = [
         ["Last true pharaoh of Egypt", "French Emperor from 1804 to 1814", "Led Rome\'s armies in the Gallic Wars", 
-          "A stoic philosopher and Roman emperor", "16th President of the United States of America", "An early 20th-century American actress who became the Princess of Monaco", 
-          "Japan's first emperor to abdicate the throne since 1817"],
+          "A stoic philosopher and Roman emperor", "16th President of the United States of America", 
+          "An early 20th-century American actress who became the Princess of Monaco", "Japan's first emperor to abdicate the throne since 1817"],
         ["1979 Sci-fi horror film", "\"Go ahead. Make my day.\"", "\"Frankly, my dear, I don't give a damn.\"", "\"Fish are friends, not food.\"", 
          "\"I'm pretty tired... I think I'll go home now.\""],
-        ["Known for its Shilin market", "The global capital of fashion and design", "Home of the Prado Museum", "Home fo the Van Gogh Museum", 
+        ["Known for its Shilin market", "The global capital of fashion and design", "Home of the Prado Museum", "Home of the Van Gogh Museum", 
          "Known for its medieval Astronomical Clock "]
       ];
    
