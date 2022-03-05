@@ -1,5 +1,13 @@
-window.addEventListener('DOMContentLoaded', () => {
+// What I messed up
+    // Confidence
+    // Update README.md with user instructions (how to run or install) and licenses (none for this one)
+    // Didn't use 3 separate event listeners (3 different kinds)
+    // Stop using var, understand the variable declarations + scope (global, functional, block)
+        // ES6 introduced const and let -> block scope
+        // no-implicit-globals -> bad practice
+    // Don't use XMLHttpRequest, use fetch requests 
 
+window.onload = function () {
     var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
                       'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
     var topics;         // Array of topics
@@ -142,11 +150,11 @@ window.addEventListener('DOMContentLoaded', () => {
     }
        
 
-    // colorize.onclick = function() {
-    //   // debugger;
-    //   const letters = document.querySelectorAll('#letter')
-    //   letters.forEach(li => li.style.color = '#' + Math.floor(Math.random()*16777215).toString(16))
-    // }
+    colorize.onclick = function() {
+      // debugger;
+      const letters = document.querySelectorAll('#letter')
+      letters.forEach(li => li.style.color = '#' + Math.floor(Math.random()*16777215).toString(16))
+    }
 
     // Generate random fact IF YOU WIN ----------------------------------------------------------------------------------
     // API URL: https://uselessfacts.jsph.pl/random.json?language=en
@@ -185,6 +193,6 @@ window.addEventListener('DOMContentLoaded', () => {
       showClue.innerHTML = "";
       play();
     }
-  
-})
+   
+  } // end function
   
