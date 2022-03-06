@@ -1,26 +1,25 @@
 window.addEventListener('DOMContentLoaded', () => {
 
-    var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-                      'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-    var topics;         // Array of topics
-    var chosenTopic;    // Selected topic
-    var word;           // Selected word
-    var guess;          // Guess
-    var guesses = [];   // Stored guesses
-    var lives;          // Attempts
-    var counter;        // Count correct guesses
-    var space;          // Number of spaces in word '-'
+    let topics;         // Array of topics
+    let chosenTopic;    // Selected topic
+    let word;           // Selected word
+    let guesses = [];   // Stored guesses
+    let lives;          // Attempts
+    let counter;        // Count correct guesses
+    let space;          // Number of spaces in word '-'
    
     // Get HTML elements by ID ------------------------------------------------------------------------------------------
-    var showLives = document.getElementById("mylives");
-    var showClue = document.getElementById("clue");
-   
+    const showLives = document.getElementById("mylives");
+    const showClue = document.getElementById("clue");
+    
     // Create alphabet ul ------------------------------------------------------------------------------------------
-    var buttons = function () {
-      myButtons = document.getElementById('buttons');
-      letters = document.createElement('ul');
+    const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+                      'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    const buttons = function () {
+      let myButtons = document.getElementById('buttons');
+      let letters = document.createElement('ul');
    
-      for (var i = 0; i < alphabet.length; i++) {
+      for (let i = 0; i < alphabet.length; i++) {
         letters.id = 'alphabet';
         list = document.createElement('li');
         list.id = 'letter';
@@ -32,7 +31,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
        
     // Topic selector ------------------------------------------------------------------------------------------
-    var selectTopic = function () {
+    const selectTopic = function () {
       if (chosenTopic === topics[0]) {
         topicName.innerHTML = "WORD TOPIC: Historical Figures";
         console.log("WORD TOPIC: Historical Figures")
@@ -47,10 +46,11 @@ window.addEventListener('DOMContentLoaded', () => {
    
     // Create guesses ul ------------------------------------------------------------------------------------------
     result = function () {
-      wordHolder = document.getElementById('hold');
-      correct = document.createElement('ul');
+      let guess; // Guess
+      let wordHolder = document.getElementById('hold');
+      let correct = document.createElement('ul');
    
-      for (var i = 0; i < word.length; i++) {
+      for (let i = 0; i < word.length; i++) {
         correct.setAttribute('id', 'my-word');
         guess = document.createElement('li');
         guess.setAttribute('class', 'guess');
@@ -81,16 +81,16 @@ window.addEventListener('DOMContentLoaded', () => {
     // OnClick Function ------------------------------------------------------------------------------------------
     check = function () {
       list.onclick = function () {
-        var guess = (this.innerHTML);
+        let guess = (this.innerHTML);
         this.setAttribute("class", "active");
         this.onclick = null;
-          for (var i = 0; i < word.length; i++) {
+          for (let i = 0; i < word.length; i++) {
             if (word[i] === guess) {
               guesses[i].innerHTML = guess;
               counter += 1;
             }
           }
-        var j = (word.indexOf(guess));
+        let j = (word.indexOf(guess));
           if (j === -1) {
             lives -= 1;
             comments();
@@ -136,12 +136,11 @@ window.addEventListener('DOMContentLoaded', () => {
          "Known for its medieval Astronomical Clock "]
       ];
    
-      var topicIndex = topics.indexOf(chosenTopic);
-      var hintIndex = chosenTopic.indexOf(word);
+      let topicIndex = topics.indexOf(chosenTopic);
+      let hintIndex = chosenTopic.indexOf(word);
       showClue.innerHTML = "HINT: " +  hints [topicIndex][hintIndex];
     }
-       
-
+      
     // colorize.onclick = function() {
     //   // debugger;
     //   const letters = document.querySelectorAll('#letter')
@@ -151,11 +150,8 @@ window.addEventListener('DOMContentLoaded', () => {
     // Generate random fact IF YOU WIN ----------------------------------------------------------------------------------
     // API URL: https://uselessfacts.jsph.pl/random.json?language=en
     // API Documentation: https://uselessfacts.jsph.pl/
-    // How to Read JSON file from URL https://www.educative.io/edpresso/how-to-read-a-json-file-from-a-url-in-javascript
-      // Might be better off using jquery next time... this is kinda complicated
-      // Libraries over natives ---> "libraries are better at cross-browser stuff"
     function loadJSON(path, success, error) {
-      var xhr = new XMLHttpRequest();
+      let xhr = new XMLHttpRequest();
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
           if (xhr.status === 200) {
@@ -179,7 +175,8 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     // Reset (play again) ------------------------------------------------------------------------------------------
-    document.getElementById('reset').onclick = function() {
+    document.getElementById('reset').onclick = function() { 
+      // relies on implicit globals, need to fix
       correct.parentNode.removeChild(correct);
       letters.parentNode.removeChild(letters);
       showClue.innerHTML = "";
