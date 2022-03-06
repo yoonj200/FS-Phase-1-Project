@@ -4,7 +4,7 @@
     // Didn't use 3 separate event listeners (3 different kinds)
     // Stop using var, understand the variable declarations + scope (global, functional, block)
         // ES6 introduced const and let -> block scope
-        // no-implicit-globals -> bad practice
+        // implicit-globals -> bad practice
     // Don't use XMLHttpRequest, use fetch requests 
 
 window.onload = function () {
@@ -150,11 +150,11 @@ window.onload = function () {
     }
        
 
-    colorize.onclick = function() {
-      // debugger;
-      const letters = document.querySelectorAll('#letter')
-      letters.forEach(li => li.style.color = '#' + Math.floor(Math.random()*16777215).toString(16))
-    }
+    // colorize.onclick = function() {
+    //   // debugger;
+    //   const letters = document.querySelectorAll('#letter')
+    //   letters.forEach(li => li.style.color = '#' + Math.floor(Math.random()*16777215).toString(16))
+    // }
 
     // Generate random fact IF YOU WIN ----------------------------------------------------------------------------------
     // API URL: https://uselessfacts.jsph.pl/random.json?language=en
