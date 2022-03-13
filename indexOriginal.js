@@ -107,7 +107,7 @@ window.onload = function () {
           }
         }
       }
-     
+
     // Play ------------------------------------------------------------------------------------------
     play = function () {
       topics = [
@@ -115,7 +115,7 @@ window.onload = function () {
         ["alien", "dirty-harry", "the-matrix", "finding-nemo", "forrest-gump"],
         ["taipei", "milan", "madrid", "amsterdam", "prague"] 
       ];
-   
+
       chosenTopic = topics[Math.floor(Math.random() * topics.length)];
       word = chosenTopic[Math.floor(Math.random() * chosenTopic.length)];
       word = word.replace(/\s/g, "-");
