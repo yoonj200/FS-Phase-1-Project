@@ -11,8 +11,9 @@ Everyone should be able to learn something while having fun. If you want to be r
 
 ## **Installation**
 1. Open up the directory where you want to clone this repository.
-2. Copy the SSH URL (git@github.com:yoonj200/FS-phase-1-project.git) and paste run `git clone url-here` in your command line. 
+2. Copy the SSH URL ( git@github.com:yoonj200/FS-phase-1-project.git ) and paste run `git clone url-here` in your command line. 
 3. Run `code FS-phase-1-project` to open the source files in your text editor. 
+4. After viewing the source files, run `explorer.exe index.html` to open the SPA in your local browser. 
 
 ## **How to Play**
 1. Click a letter to test if it belongs in the hidden word.
