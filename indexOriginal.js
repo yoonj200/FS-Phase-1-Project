@@ -18,16 +18,16 @@ window.onload = function () {
     var lives;          // Attempts
     var counter;        // Count correct guesses
     var space;          // Number of spaces in word '-'
-   
+
     // Get HTML elements by ID ------------------------------------------------------------------------------------------
     var showLives = document.getElementById("mylives");
     var showClue = document.getElementById("clue");
-   
+
     // Create alphabet ul ------------------------------------------------------------------------------------------
     var buttons = function () {
       myButtons = document.getElementById('buttons');
       letters = document.createElement('ul');
-   
+
       for (var i = 0; i < alphabet.length; i++) {
         letters.id = 'alphabet';
         list = document.createElement('li');
@@ -38,7 +38,7 @@ window.onload = function () {
         letters.appendChild(list);
       }
     }
-       
+
     // Topic selector ------------------------------------------------------------------------------------------
     var selectTopic = function () {
       if (chosenTopic === topics[0]) {
@@ -52,12 +52,12 @@ window.onload = function () {
         console.log("WORD TOPIC: Cities")
       }
     }
-   
+
     // Create guesses ul ------------------------------------------------------------------------------------------
     result = function () {
       wordHolder = document.getElementById('hold');
       correct = document.createElement('ul');
-   
+
       for (var i = 0; i < word.length; i++) {
         correct.setAttribute('id', 'my-word');
         guess = document.createElement('li');
@@ -68,13 +68,13 @@ window.onload = function () {
       } else {
         guess.innerHTML = "_";
       }
-   
+
       guesses.push(guess);
       wordHolder.appendChild(correct);
       correct.appendChild(guess);
       }
     }
-     
+
     // Display attempts (lives) & Win/Lose Prompts ------------------------------------------------------------
     comments = function () {
       showLives.innerHTML = "You have " + lives + " attempts!";
@@ -85,7 +85,7 @@ window.onload = function () {
         loadJSON('https://uselessfacts.jsph.pl/random.json?language=en', displayGameOverSuccess, errorFetchingFact)
       }
     }
-   
+
     // OnClick Function ------------------------------------------------------------------------------------------
     check = function () {
       list.onclick = function () {
@@ -121,7 +121,7 @@ window.onload = function () {
       word = word.replace(/\s/g, "-");
       console.log(word);
       buttons();
-   
+
       guesses = [];
       lives = 5;
       counter = 0;
@@ -131,7 +131,7 @@ window.onload = function () {
       selectTopic();
     }
     play();
-     
+
     // Hint ------------------------------------------------------------------------------------------
     hint.onclick = function() {
       hints = [
@@ -143,12 +143,11 @@ window.onload = function () {
         ["Known for its Shilin market", "The global capital of fashion and design", "Home of the Prado Museum", "Home of the Van Gogh Museum", 
          "Known for its medieval Astronomical Clock "]
       ];
-   
+
       var topicIndex = topics.indexOf(chosenTopic);
       var hintIndex = chosenTopic.indexOf(word);
       showClue.innerHTML = "HINT: " +  hints [topicIndex][hintIndex];
     }
-       
 
     // colorize.onclick = function() {
     //   // debugger;
@@ -193,6 +192,6 @@ window.onload = function () {
       showClue.innerHTML = "";
       play();
     }
-   
+
   } // end function
   
