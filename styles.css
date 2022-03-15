@@ -7,7 +7,7 @@ body {
     text-align: center;
     font-size: 18px;
 }
-/* <element class="wrappper"> */
+
 .wrappper {
     width: 100%;
     margin: 0 auto;
@@ -111,7 +111,7 @@ p {
     display: block;
 }
 /* Hint and Play Again buttons */
-button {
+#hint {
     border-radius: 50px;
     background: #005e76;
     color: #fff;
@@ -125,7 +125,27 @@ button {
     outline: none;
 }
  
-button:hover {
+#hint:hover {
+    transition: all 0.5s ease-in-out;
+    background: #fff;
+    border: solid 1px #fff;
+    color: #003f4e;
+}
+#reset {
+    border-radius: 50px;
+    background: #005e76;
+    color: #fff;
+    border: solid 1px #fff;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 18px 10px;
+    width: 180px;
+    margin: 10px;
+    outline: none;
+}
+ 
+#reset:hover {
     transition: all 0.5s ease-in-out;
     background: #fff;
     border: solid 1px #fff;
