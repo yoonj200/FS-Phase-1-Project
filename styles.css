@@ -38,24 +38,24 @@ p {
     font-size: 1.5em;
 }
  
-#alphabet {
+.keyboard {
     margin: auto; /* centers letter bank */
     max-width: 650px; /* width of letter bank */
 }
  
-#alphabet:after {
+.keyboard:after {
     content: ""; /* replaces with "" */
     display: table;
     clear: both;
 }
  
-#alphabet li { /*alphabet buttons*/
-    float: left;
+.keyboard button { /*letter buttons*/
+    float: center;
     margin: 0 10px 10px 0;
     list-style: none;
     width: 35px;
     height: 30px;
-    padding-top: 10px;
+    padding: 0px;
     background: #fff;
     color: #005e76; 
     cursor: pointer;
@@ -63,7 +63,7 @@ p {
     border: solid 1px #fff;
 }
  
-#alphabet li:hover {
+.keyboard button:hover {
     background: #005e76;
     border: solid 1px #fff;
     color: #fff;
