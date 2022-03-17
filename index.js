@@ -42,11 +42,23 @@ const wordHintPairs = [
 function selectWord() {
   // 'chosenObject' randomly selects nested object
   let chosenObject = wordHintPairs[Math.floor(Math.random() * wordHintPairs.length)]
-  // console.log(chosenObject)
   // 'pair' = randomly selected key-value pair from nested object
   let pairs = Object.entries(chosenObject)
   let pair = pairs[Math.floor(Math.random() * pairs.length)]
   console.log(pair)
+
+  // Displays topic based off of selected object
+  if (chosenObject === wordHintPairs[0]) {
+    // <p id="wordTopic"></p>
+    wordTopic.innerText = "WORD TOPIC: Historical Figures";
+    console.log("WORD TOPIC: Historical Figures")
+  } else if (chosenObject === wordHintPairs[1]) {
+    wordTopic.innerText = "WORD TOPIC: Films";
+    console.log("WORD TOPIC: Films")
+  } else if (chosenObject === wordHintPairs[2]) {
+    wordTopic.innerText = "WORD TOPIC: Cities";
+    console.log("WORD TOPIC: Cities")
+  } 
 }
 selectWord();
 
