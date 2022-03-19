@@ -44,7 +44,7 @@ p {
 }
  
 .keyboard:after {
-    content: ""; /* replaces with "" */
+    content: ""; 
     display: table;
     clear: both;
 }
@@ -61,6 +61,7 @@ p {
     cursor: pointer;
     border-radius: 15px;
     border: solid 1px #fff;
+    font-size: 15px;
 }
  
 .keyboard button:hover {

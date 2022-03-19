@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
   console.log('DOM fully loaded and parsed')
 
-  // Globally declared words and hints... is there a way around this?
+  // Globally declared words and hints...
   const wordHintPairs = [
     {
       "cleopatra": "Last true pharaoh of Egypt",
@@ -40,24 +40,54 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // Selects word & hint ----------------------------------------
   function selectWord() {
-    // 'chosenObject' randomly selects nested object
+    // 'chosenObject' randomly selects nested object from 'wordHintPairs' array
     let chosenObject = wordHintPairs[Math.floor(Math.random() * wordHintPairs.length)]
-    // 'pair' = randomly selected key-value pair from nested object
+    // 'pairs' converts 'chosenObject' key-value pairs into [key, value] arrays
     let pairs = Object.entries(chosenObject)
+    // 'pair' randomly selects [key, value] from 'pairs'
     let pair = pairs[Math.floor(Math.random() * pairs.length)]
-    console.log(pair)
-    // Displays topic based off of selected object 
+      console.log(pair)
+    let hint = pair[1]
+
+    // Hint button (nested) ----------------------------------------
+    document.getElementById('hint').onclick = function() {
+      clue.textContent = "HINT: " + hint; // <p id="clue"></p>
+      document.getElementById("hint").onclick = null; // Hint button can only be clicked once
+    }
+    
+    // 'wordTopic.textContent' displays topic based off of selected object 
     if (chosenObject === wordHintPairs[0]) { // <p id="wordTopic"></p>
-      wordTopic.textContent = "WORD TOPIC: Historical Figures";
-      console.log("WORD TOPIC: Historical Figures")
+      wordTopic.textContent = "TOPIC: Historical Figures";
+        console.log("TOPIC: Historical Figures")
     } else if (chosenObject === wordHintPairs[1]) {
-      wordTopic.textContent = "WORD TOPIC: Films";
-      console.log("WORD TOPIC: Films")
+      wordTopic.textContent = "TOPIC: Films";
+        console.log("TOPIC: Films")
     } else if (chosenObject === wordHintPairs[2]) {
-      wordTopic.textContent = "WORD TOPIC: Cities";
-      console.log("WORD TOPIC: Cities")
+      wordTopic.textContent = "TOPIC: Cities";
+        console.log("TOPIC: Cities")
     } 
   }
   selectWord();
+
+// Play again button ----------------------------------------
+  reset.onclick = function() {
+    // alert("Placeholder :]")
+    clue.textContent = "Need a Hint? Click the Hint button!"
+    selectWord();
+  }
+
+  // Create guesses ul ----------------------------------------
+    // parses through selectWord() 'pair' to find key (word)
+  // handleGuesses.onClick = function() {
+    
+  // }
+    /*
+      function firstFunction() {
+      return "testing 123";
+      }
+
+      var test = firstFunction();  // this will grab you the return value from firstFunction();
+      alert(test);  
+    */
 
 })
