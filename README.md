@@ -29,7 +29,7 @@ Everyone should be able to learn something while having fun. If you want to be r
    
    ![](ifYouWin.gif)
 ## **Credits**
-- [Random Useless Facts: HTTP API for Useless Facts](https://support.west-wind.com)
+- [Random Useless Facts: HTTP API for Useless Facts](https://uselessfacts.jsph.pl/)
 - [How to read a JSON file from a URL in JavaScript](https://www.educative.io/edpresso/how-to-read-a-json-file-from-a-url-in-javascript)
 - [How to add GIFs to your GitHub README](https://josephcardillo.medium.com/how-to-add-gifs-to-your-github-readme-89c74da2ce47)
 

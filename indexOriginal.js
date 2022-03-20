@@ -105,8 +105,8 @@ window.onload = function () {
         } else {
           comments();
         }
-      }
     }
+  }
 
   // Play ------------------------------------------------------------------------------------------
   play = function () {
@@ -146,15 +146,12 @@ window.onload = function () {
 
     var topicIndex = topics.indexOf(chosenTopic);
     var hintIndex = chosenTopic.indexOf(word);
-    showClue.innerHTML = "HINT: " +  hints [topicIndex][hintIndex];
+    showClue.innerHTML = "HINT: " +  hints[topicIndex][hintIndex];
   }
 
   // Generate random fact IF YOU WIN ----------------------------------------------------------------------------------
   // API URL: https://uselessfacts.jsph.pl/random.json?language=en
   // API Documentation: https://uselessfacts.jsph.pl/
-  // How to Read JSON file from URL https://www.educative.io/edpresso/how-to-read-a-json-file-from-a-url-in-javascript
-    // Might be better off using jquery next time... this is kinda complicated
-    // Libraries over natives ---> "libraries are better at cross-browser stuff"
   function loadJSON(path, success, error) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
