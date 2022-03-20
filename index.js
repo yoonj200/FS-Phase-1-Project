@@ -47,8 +47,11 @@ window.addEventListener('DOMContentLoaded', () => {
     // 'pair' randomly selects [key, value] from 'pairs'
     let pair = pairs[Math.floor(Math.random() * pairs.length)]
       console.log(pair)
+    let word = pair[0]
     let hint = pair[1]
 
+    handleGuesses(word);
+    
     // Hint button (nested) ----------------------------------------
     document.getElementById('hint').onclick = function() {
       clue.textContent = "HINT: " + hint; // <p id="clue"></p>
@@ -72,22 +75,32 @@ window.addEventListener('DOMContentLoaded', () => {
 // Play again button ----------------------------------------
   reset.onclick = function() {
     // alert("Placeholder :]")
-    clue.textContent = "Need a Hint? Click the Hint button!"
+    clue.textContent = "Need a Hint? Click the Hint button!";
+    blanks.textContent = "";
     selectWord();
   }
 
-  // Create guesses ul ----------------------------------------
-    // parses through selectWord() 'pair' to find key (word)
-  // handleGuesses.onClick = function() {
-    
-  // }
-    /*
-      function firstFunction() {
-      return "testing 123";
-      }
+  // Create blanks ----------------------------------------
+  function handleGuesses(pass) {
+    let guesses = [];
+    let wordHolder = document.getElementById('blanks');
+    let correct = document.createElement('ul');
 
-      var test = firstFunction();  // this will grab you the return value from firstFunction();
-      alert(test);  
-    */
+    for (let i = 0; i < pass.length; i++) {
+      correct.setAttribute('id', 'my-word');
+      let guess = document.createElement('li');
+      guess.setAttribute('class', 'guess');
+    if (pass[i] === "-") {
+      guess.textContent = "-";
+      space = 1;
+    } else {
+      guess.textContent = "_";
+    }
+
+    guesses.push(guess);
+    wordHolder.appendChild(correct);
+    correct.appendChild(guess);
+    }
+  }
 
 })
