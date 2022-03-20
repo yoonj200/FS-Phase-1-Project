@@ -40,11 +40,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // Selects word & hint ----------------------------------------
   function selectWord() {
-    // 'chosenObject' randomly selects nested object from 'wordHintPairs' array
+    //  chosenObject = random nested object from 'wordHintPairs' array
     let chosenObject = wordHintPairs[Math.floor(Math.random() * wordHintPairs.length)]
-    // 'pairs' converts 'chosenObject' key-value pairs into [key, value] arrays
+    //  pairs = converts 'chosenObject' key-value pairs into [key, value] arrays
     let pairs = Object.entries(chosenObject)
-    // 'pair' randomly selects [key, value] from 'pairs'
+    //  pair = random [key, value] from 'pairs'
     let pair = pairs[Math.floor(Math.random() * pairs.length)]
       console.log(pair)
     let word = pair[0]
@@ -102,5 +102,7 @@ window.addEventListener('DOMContentLoaded', () => {
     correct.appendChild(guess);
     }
   }
+
+  // check() handles letters being clicked and checks if it matches with the randomly selected word
 
 })

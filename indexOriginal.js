@@ -2,7 +2,7 @@
     // Confidence
     // Update README.md with user instructions (how to run or install) and licenses (none for this one)
     // Didn't use 3 separate event listeners (3 different kinds)
-    // Stop using var, understand the variable declarations + scope (global, functional, block)
+    // Stop using var, understand the variable declarations + scope (global, function, block)
         // ES6 introduced const and let -> block scope
         // implicit-globals -> bad practice
     // Don't use XMLHttpRequest, use fetch requests 
