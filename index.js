@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
-  console.log('DOM fully loaded and parsed')
+  // console.log('DOM fully loaded and parsed')
 // Globally stores game info
   let gameObject = {
     word:'', 
@@ -15,7 +15,8 @@ window.addEventListener('DOMContentLoaded', () => {
     gameObject.myLives = 5;
     myLives.textContent = "You have " + gameObject.myLives + " attempts."
     document.querySelectorAll(".keyboard .letter").forEach(element => element.disabled=false);
-    selectWord(); // randomly selects word
+    document.getElementById("hint").disabled=false;
+    selectWord();
   }
   initGame();
 // Generates responsive letter bank ----------------------------------------
@@ -35,7 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
         this.disabled=true; // makes button unclickable 
       }
     }
-    console.log(this)
+    // console.log(this)
     document.querySelector(".gameBoard").addEventListener("guess", handleGuesses, false)
   }
   generateLetters();
@@ -64,20 +65,13 @@ window.addEventListener('DOMContentLoaded', () => {
         "prague": "Known for its medieval Astronomical Clock"
       }
     ]
-    // 'chosenObject' randomly selects nested object from 'wordHintPairs' array
-    // 'pairs' returns [key, value] arrays of 'chosenObject' key-value pairs
-    // 'pair' randomly selects [key, value] from 'pairs'
     let chosenObject = wordHintPairs[Math.floor(Math.random() * wordHintPairs.length)]
     let pairs = Object.entries(chosenObject)
     let pair = pairs[Math.floor(Math.random() * pairs.length)]
     console.log(pair)
     gameObject.word = pair[0] // stores in globally scoped gameObject
     gameObject.hint = pair[1]
-    // Hint button (nested) ----------------------------------------
-    document.getElementById('hint').onclick = function() {
-      clue.textContent = "HINT: " + gameObject.hint; // <p id="clue"></p>
-      document.getElementById("hint").onclick = null; // Hint button can only be clicked once
-    }
+
     // Displays topic (chosen object) 
     if (chosenObject === wordHintPairs[0]) { // <p id="wordTopic"></p>
       wordTopic.textContent = "TOPIC: Historical Figures";
@@ -91,6 +85,12 @@ window.addEventListener('DOMContentLoaded', () => {
     } 
     generateResults(gameObject.word);
   }
+
+// Hint button ----------------------------------------
+document.getElementById('hint').onclick = function() {
+  clue.textContent = "HINT: " + gameObject.hint; // <p id="clue"></p>
+  document.getElementById("hint").disabled = true; // Hint button can only be clicked once
+}
 // Play again button ----------------------------------------
   reset.onclick = function() {
     initGame();
@@ -113,6 +113,7 @@ window.addEventListener('DOMContentLoaded', () => {
       wordHolder.appendChild(correct);
     }
   }
+
 // Handles user's guesses ---------------------------------------- 
   function handleGuesses(guess) {
     gameObject.storedGuesses.push(guess.detail.letter); // CustomEvent.detail returns any data passed when initializing event
@@ -121,17 +122,32 @@ window.addEventListener('DOMContentLoaded', () => {
     if (gameObject.word.includes(guess.detail.letter)) {
       let letterPositions = findAllLetterPositions(gameObject.word, guess.detail.letter) 
       letterPositions.forEach(position => document.querySelectorAll("li.guess")[position].textContent = guess.detail.letter)
-      // for every correct letter, check if there are letters not filled in yet
-      
+      gameSuccess()
     } else { 
         gameObject.myLives -=1 // incorrect guesses deduct a life
         myLives.textContent = "You have " + gameObject.myLives + " remaining attempts."
-        if (gameObject.myLives < 1) { // GAME OVER
-          myLives.textContent = "GAME OVER! Try again!"
-          document.querySelectorAll(".keyboard .letter").forEach(element => element.disabled=true);
-        }
+        gameOver();
       }
   }
+// Game success ----------------------------------------
+function gameSuccess() {
+  let guessListElements = document.querySelectorAll("li.guess")
+      let checkBlanks = Array.from(guessListElements).filter(element => element.textContent === "_").length
+      if (checkBlanks === 0) {
+        fetchFact()
+        gameOver()
+        document.querySelectorAll(".keyboard .letter").forEach(element => element.disabled=true);
+        document.getElementById("hint").disabled=true;
+      }
+}
+// Game Over ----------------------------------------
+function gameOver() {
+  if (gameObject.myLives < 1) {
+    myLives.textContent = "GAME OVER! Try again!"
+    document.querySelectorAll(".keyboard .letter").forEach(element => element.disabled=true);
+    document.getElementById("hint").disabled=true;
+  }
+}
 // Finds and stores letter positions ----------------------------------------
   function findAllLetterPositions(haystack, needle) {
     let position = 0;
@@ -142,9 +158,8 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     return positions;
   }
-
-// Fetches API data (random fact)
-  function returnFact() {
+// Fetches API data (random fact) ----------------------------------------
+  function fetchFact() {
     fetch("https://uselessfacts.jsph.pl/random.json?language=en")
     .then(function (response) {
       // take the response, which is a JSON-formatted **string**,
@@ -152,11 +167,7 @@ window.addEventListener('DOMContentLoaded', () => {
       return response.json();
     }) 
     .then(function (data) {
-      // console.log(data);
-      myLives.textContent = `You win! Here's your random fact: ${data["text"]}`;
-      // console.log(`You win! Here's your random fact: ${data["text"]}`)
+      myLives.textContent = `You win! Here's your random fact: ` + data[`text`];
     });
   }
-  // returnFact();
-
 })

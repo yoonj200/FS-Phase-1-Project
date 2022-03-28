@@ -53,15 +53,15 @@ p {
     float: center;
     margin: 0 10px 10px 0;
     list-style: none;
-    width: 35px;
-    height: 35px;
+    width: 36px;
+    height: 40px;
     padding: 0px;
     background: #fff;
     color: #005e76; 
     cursor: pointer;
     border-radius: 15px;
     border: solid 1px #fff;
-    font-size: 15px;
+    font-size: 1em;
 }
  
 .keyboard button.letter:hover {
@@ -93,7 +93,7 @@ p {
     margin: 0;
     display: inline-block;
     padding: 0 10px;
-    font-size: 1.6em;
+    font-size: 1.25em;
 }
  
 .active {
@@ -141,6 +141,13 @@ p {
     background: #fff;
     border: solid 1px #fff;
     color: #003f4e;
+}
+#hint:disabled {
+    opacity: 0.5;
+    background: #005e76;
+    color: #fff; 
+    /* cursor:auto; */
+    cursor: default;
 }
 #reset {
     border-radius: 50px;
