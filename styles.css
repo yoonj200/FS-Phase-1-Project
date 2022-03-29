@@ -1,7 +1,7 @@
 /* body text */
 body { 
-    background: #005e76;
-    font-family: Helvetica, Arial, sans-serif;
+    background: #000000;
+    font-family: Helvetica, sans-serif;
     color: rgb(255, 255, 255);
     height: 100%;
     text-align: center;
@@ -14,28 +14,44 @@ body {
 }
 /* 'after' inserts after content of selected element 'wrapper' */
 .wrappper:after {
-    content: "";
+    /* content: ""; */
     display: table;
     clear: both;
 }
  
 h1, h2, h3 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
+    font-family: Helvetica;
     text-transform: uppercase;
+    letter-spacing: 2px;
     margin: 5px 0;
 }
  
 h1 {
-    font-size: 2.5em; /* 'em' is a relative measurement depending on its parent */
+    font-size: 3em;
+}
+h1:hover {
+    transition: 250ms;
+    text-shadow: 0.04em 0.04em #fc0049, 0.08em 0.08em #fe8f01,
+    0.12em 0.12em #fdf21f, 0.16em 0.16em #3fdf4b, 0.2em 0.2em #3462fe;
 }
  
 h2 {
     font-size: 1.75em;
 }
+h2:hover {
+    transition: 500ms;
+    text-shadow: 0.04em 0.04em #fc0049, 0.08em 0.08em #fe8f01,
+    0.12em 0.12em #fdf21f, 0.16em 0.16em #3fdf4b, 0.2em 0.2em #3462fe;
+}
  
 p {
     font-size: 1.5em;
+    letter-spacing: 1px;
+}
+p:hover {
+    transition: 500ms;
+    text-shadow: 0.04em 0.04em #fc0049, 0.08em 0.08em #fe8f01,
+    0.12em 0.12em #fdf21f, 0.16em 0.16em #3fdf4b, 0.2em 0.2em #3462fe;
 }
  
 .keyboard {
@@ -57,7 +73,7 @@ p {
     height: 40px;
     padding: 0px;
     background: #fff;
-    color: #005e76; 
+    color: #000000; 
     cursor: pointer;
     border-radius: 15px;
     border: solid 1px #fff;
@@ -65,7 +81,7 @@ p {
 }
  
 .keyboard button.letter:hover {
-    background: #005e76;
+    background: #000000;
     border: solid 1px #fff;
     color: #fff;
     transition: all 250ms ease-in-out;
@@ -74,7 +90,7 @@ p {
 .keyboard button.letter:disabled {
     opacity: 0.5;
     background: #fff;
-    color: #005e76; 
+    color: #000000; 
     cursor:auto;
     transition: none;
     transform: translateY(0px);
@@ -124,37 +140,33 @@ p {
 /* Hint and Play Again buttons */
 #hint {
     border-radius: 50px;
-    background: #005e76;
+    background: #000000;
     color: #fff;
     border: solid 1px #fff;
-    text-decoration: none;
     cursor: pointer;
     font-size: 1.2em;
     padding: 18px 10px;
     width: 180px;
     margin: 10px;
-    outline: none;
 }
  
 #hint:hover {
     transition: all 250ms ease-in-out;
     background: #fff;
     border: solid 1px #fff;
-    color: #003f4e;
+    color: #000000;
 }
 #hint:disabled {
     opacity: 0.5;
-    background: #005e76;
+    background: #000000;
     color: #fff; 
-    /* cursor:auto; */
-    cursor: default;
+    cursor:auto;
 }
 #reset {
     border-radius: 50px;
-    background: #005e76;
+    background: #000000;
     color: #fff;
     border: solid 1px #fff;
-    text-decoration: none;
     cursor: pointer;
     font-size: 1.2em;
     padding: 18px 10px;
@@ -167,5 +179,26 @@ p {
     transition: all 250ms ease-in-out;
     background: #fff;
     border: solid 1px #fff;
-    color: #003f4e;
+    color: #000000;
+}
+
+/* Topic display rainbow shadow */
+#wordTopic {
+    /* font-family: Helvetica;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 5px 0; */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+#wordTopic:hover{
+    transition: 500ms;
+    text-shadow: 0.04em 0.04em #fc0049, 0.08em 0.08em #fe8f01,
+    0.12em 0.12em #fdf21f, 0.16em 0.16em #3fdf4b, 0.2em 0.2em #3462fe;
+}
+/* Life counter rainbow shadow */
+#myLives:hover {
+        transition: 500ms;
+        text-shadow: 0.04em 0.04em #fc0049, 0.08em 0.08em #fe8f01,
+        0.12em 0.12em #fdf21f, 0.16em 0.16em #3fdf4b, 0.2em 0.2em #3462fe;
 }

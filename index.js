@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
   // console.log('DOM fully loaded and parsed')
-// Globally stores game info
+// Globally stores game info ----------------------------------------
   let gameObject = {
     word:'', 
     hint:'', 
@@ -21,8 +21,8 @@ window.addEventListener('DOMContentLoaded', () => {
   initGame();
 // Generates responsive letter bank ----------------------------------------
   let generateLetters = function() {
-    const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('') // array of ordered substrings 
-    for (let i = 0; i < alphabet.length; i++) { // iterates through substrings and creates button for each
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('') 
+    for (let i = 0; i < alphabet.length; i++) { // creates button for each substring
       let btn = document.createElement('button');
       let t = document.createTextNode(alphabet[i]);
 
@@ -30,13 +30,12 @@ window.addEventListener('DOMContentLoaded', () => {
       btn.appendChild(t);
       document.querySelector(".keyboard").appendChild(btn); // appends to <div class="keyboard"></div>
 
-      btn.onclick = function() { // creates onclick event for letter buttons 
+      btn.onclick = function() {
         let evt = new CustomEvent("guess", {detail: {letter: alphabet[i]}, bubbles: true} )
         this.dispatchEvent(evt)
         this.disabled=true; // makes button unclickable 
       }
     }
-    // console.log(this)
     document.querySelector(".gameBoard").addEventListener("guess", handleGuesses, false)
   }
   generateLetters();
@@ -69,11 +68,11 @@ window.addEventListener('DOMContentLoaded', () => {
     let pairs = Object.entries(chosenObject)
     let pair = pairs[Math.floor(Math.random() * pairs.length)]
     console.log(pair)
-    gameObject.word = pair[0] // stores in globally scoped gameObject
+    gameObject.word = pair[0]
     gameObject.hint = pair[1]
 
     // Displays topic (chosen object) 
-    if (chosenObject === wordHintPairs[0]) { // <p id="wordTopic"></p>
+    if (chosenObject === wordHintPairs[0]) {
       wordTopic.textContent = "TOPIC: Historical Figures";
         console.log("TOPIC: Historical Figures")
     } else if (chosenObject === wordHintPairs[1]) {
@@ -88,7 +87,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // Hint button ----------------------------------------
 document.getElementById('hint').onclick = function() {
-  clue.textContent = "HINT: " + gameObject.hint; // <p id="clue"></p>
+  clue.textContent = "HINT: " + gameObject.hint;
   document.getElementById("hint").disabled = true; // Hint button can only be clicked once
 }
 // Play again button ----------------------------------------
@@ -116,7 +115,8 @@ document.getElementById('hint').onclick = function() {
 
 // Handles user's guesses ---------------------------------------- 
   function handleGuesses(guess) {
-    gameObject.storedGuesses.push(guess.detail.letter); // CustomEvent.detail returns any data passed when initializing event
+    // CustomEvent.detail returns any data passed when initializing event
+    gameObject.storedGuesses.push(guess.detail.letter); 
     console.log(gameObject.storedGuesses)
     // if chosen word contains guessed letter, blank is replaced with guessed letter
     if (gameObject.word.includes(guess.detail.letter)) {
@@ -162,9 +162,9 @@ function gameOver() {
   function fetchFact() {
     fetch("https://uselessfacts.jsph.pl/random.json?language=en")
     .then(function (response) {
-      // take the response, which is a JSON-formatted **string**,
-      // and parse it into an actual JavaScript **object**
       return response.json();
+      // takes response (JSON-formatted **string**),
+      // and parses it into an actual JavaScript **object**
     }) 
     .then(function (data) {
       myLives.textContent = `You win! Here's your random fact: ` + data[`text`];
