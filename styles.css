@@ -39,7 +39,7 @@ h2 {
     font-size: 1.75em;
 }
 h2:hover {
-    transition: 500ms;
+    transition: 250ms;
     text-shadow: 0.04em 0.04em #fc0049, 0.08em 0.08em #fe8f01,
     0.12em 0.12em #fdf21f, 0.16em 0.16em #3fdf4b, 0.2em 0.2em #3462fe;
 }
@@ -49,7 +49,7 @@ p {
     letter-spacing: 1px;
 }
 p:hover {
-    transition: 500ms;
+    transition: 250ms;
     text-shadow: 0.04em 0.04em #fc0049, 0.08em 0.08em #fe8f01,
     0.12em 0.12em #fdf21f, 0.16em 0.16em #3fdf4b, 0.2em 0.2em #3462fe;
 }
@@ -192,13 +192,13 @@ p:hover {
     letter-spacing: 1px;
 }
 #wordTopic:hover{
-    transition: 500ms;
+    transition: 250ms;
     text-shadow: 0.04em 0.04em #fc0049, 0.08em 0.08em #fe8f01,
     0.12em 0.12em #fdf21f, 0.16em 0.16em #3fdf4b, 0.2em 0.2em #3462fe;
 }
 /* Life counter rainbow shadow */
 #myLives:hover {
-        transition: 500ms;
+        transition: 250ms;
         text-shadow: 0.04em 0.04em #fc0049, 0.08em 0.08em #fe8f01,
         0.12em 0.12em #fdf21f, 0.16em 0.16em #3fdf4b, 0.2em 0.2em #3462fe;
 }
