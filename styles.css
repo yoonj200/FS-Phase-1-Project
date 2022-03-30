@@ -1,4 +1,3 @@
-/* body text */
 body { 
     background: #000000;
     font-family: Helvetica, sans-serif;
@@ -6,35 +5,37 @@ body {
     height: 100%;
     text-align: center;
     font-size: 18px;
-}
+} 
 
-.wrappper {
-    width: 100%;
-    margin: 0 auto;
-}
-/* 'after' inserts after content of selected element 'wrapper' */
-.wrappper:after {
-    /* content: ""; */
-    display: table;
-    clear: both;
-}
- 
-h1, h2, h3 {
-    font-family: Helvetica;
+h1, h2 {
     text-transform: uppercase;
     letter-spacing: 2px;
     margin: 5px 0;
 }
- 
+
 h1 {
     font-size: 3em;
+}
+.waviy span {
+    position: relative;
+    display: inline-block;
+    font-size: 40px;
+    color: #fff;
+    text-transform: uppercase;
+    animation: flip 2s infinite;
+    animation-delay: calc(.2s * var(--i))
+}
+@keyframes flip {
+    0%,80% {
+    transform: rotateY(360deg) 
+    }
 }
 h1:hover {
     transition: 250ms;
     text-shadow: 0.04em 0.04em #fc0049, 0.08em 0.08em #fe8f01,
     0.12em 0.12em #fdf21f, 0.16em 0.16em #3fdf4b, 0.2em 0.2em #3462fe;
 }
- 
+
 h2 {
     font-size: 1.75em;
 }
@@ -43,29 +44,30 @@ h2:hover {
     text-shadow: 0.04em 0.04em #fc0049, 0.08em 0.08em #fe8f01,
     0.12em 0.12em #fdf21f, 0.16em 0.16em #3fdf4b, 0.2em 0.2em #3462fe;
 }
- 
-p {
+
+#instructions {
     font-size: 1.5em;
     letter-spacing: 1px;
 }
-p:hover {
+#instructions:hover {
     transition: 250ms;
     text-shadow: 0.04em 0.04em #fc0049, 0.08em 0.08em #fe8f01,
     0.12em 0.12em #fdf21f, 0.16em 0.16em #3fdf4b, 0.2em 0.2em #3462fe;
+    
 }
- 
+
 .keyboard {
-    margin: auto; /* centers letter bank */
-    max-width: 650px; /* width of letter bank */
+    margin: auto; 
+    max-width: 650px;
 }
- 
+
 .keyboard:after {
     content: ""; 
     display: table;
     clear: both;
 }
- 
-.keyboard button.letter { /*letter buttons*/
+
+.keyboard button.letter { 
     float: center;
     margin: 0 10px 10px 0;
     list-style: none;
@@ -79,7 +81,7 @@ p:hover {
     border: solid 1px #fff;
     font-size: 1em;
 }
- 
+
 .keyboard button.letter:hover {
     background: #000000;
     border: solid 1px #fff;
@@ -95,14 +97,14 @@ p:hover {
     transition: none;
     transform: translateY(0px);
 }
- 
+
 #my-word {
     margin: 0;
     display: block;
     padding: 0;
     display: block;
 }
- 
+
 #my-word li {
     position: relative;
     list-style: none;
@@ -111,33 +113,7 @@ p:hover {
     padding: 0 10px;
     font-size: 1.25em;
 }
- 
-.active {
-    opacity: 0.4;
-    filter: alpha(opacity=40);
-    transition: all 1s ease-in; /* 'ease-in' specifies a transition effect with a slow start */
-    transition: all 250ms ease-in-out; /* 'ease-in-out' specifies a transition effect with a slow start and end */
-    transition: all 250ms ease-in-out;
-    cursor: default;
-}
- 
-.active:hover {
-    transition: all 1s ease-in;
-    transition: all 250ms ease-in-out;
-    transition: all 250ms ease-in-out;
-    opacity: 0.4;
-    filter: alpha(opacity=40);
-    transition: all 1s ease-in;
-    transition: all 250ms ease-in-out;
-    transition: all 250ms ease-in-out;
-}
- 
-#myattempts {
-    font-size: 1.75em;
-    text-align: center;
-    display: block;
-}
-/* Hint and Play Again buttons */
+
 #hint {
     border-radius: 50px;
     background: #000000;
@@ -149,7 +125,7 @@ p:hover {
     width: 180px;
     margin: 10px;
 }
- 
+
 #hint:hover {
     transition: all 250ms ease-in-out;
     background: #fff;
@@ -174,7 +150,7 @@ p:hover {
     margin: 10px;
     outline: none;
 }
- 
+
 #reset:hover {
     transition: all 250ms ease-in-out;
     background: #fff;
@@ -182,12 +158,8 @@ p:hover {
     color: #000000;
 }
 
-/* Topic display rainbow shadow */
 #wordTopic {
-    /* font-family: Helvetica;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 5px 0; */
+    font-size: 1.5em;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -196,9 +168,26 @@ p:hover {
     text-shadow: 0.04em 0.04em #fc0049, 0.08em 0.08em #fe8f01,
     0.12em 0.12em #fdf21f, 0.16em 0.16em #3fdf4b, 0.2em 0.2em #3462fe;
 }
-/* Life counter rainbow shadow */
+
+#myLives {
+    font-size: 1.5em;
+}
 #myLives:hover {
-        transition: 250ms;
-        text-shadow: 0.04em 0.04em #fc0049, 0.08em 0.08em #fe8f01,
-        0.12em 0.12em #fdf21f, 0.16em 0.16em #3fdf4b, 0.2em 0.2em #3462fe;
+    transition: 250ms;
+    text-shadow: 0.04em 0.04em #fc0049, 0.08em 0.08em #fe8f01,
+    0.12em 0.12em #fdf21f, 0.16em 0.16em #3fdf4b, 0.2em 0.2em #3462fe;
+}
+
+#clue {
+    font-size: 1.25em;
+}
+#clue:hover {
+    transition: 250ms;
+    text-shadow: 0.04em 0.04em #fc0049, 0.08em 0.08em #fe8f01,
+    0.12em 0.12em #fdf21f, 0.16em 0.16em #3fdf4b, 0.2em 0.2em #3462fe;
+}
+
+.guess:hover {
+    transition: 250ms;
+    transform: translateY(3px)
 }
