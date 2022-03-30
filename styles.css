@@ -162,6 +162,7 @@ h2:hover {
     font-size: 1.5em;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-weight: bold;
 }
 #wordTopic:hover{
     transition: 250ms;
@@ -171,6 +172,7 @@ h2:hover {
 
 #myLives {
     font-size: 1.5em;
+    font-weight: bold;
 }
 #myLives:hover {
     transition: 250ms;
