@@ -110,8 +110,8 @@ h2:hover {
     list-style: none;
     margin: 0;
     display: inline-block;
-    padding: 0 10px;
-    font-size: 1.25em;
+    padding: 8px;
+    font-size: 1.5em;
 }
 
 #hint {

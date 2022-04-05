@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
   // console.log('DOM fully loaded and parsed')
 // Globally stores game info ----------------------------------------
-  let gameObject = {
+  const gameObject = {
     word:'', 
     hint:'', 
     storedGuesses: [],
@@ -30,11 +30,11 @@ window.addEventListener('DOMContentLoaded', () => {
       btn.appendChild(t);
       document.querySelector(".keyboard").appendChild(btn); // appends to <div class="keyboard"></div>
 
-      btn.onclick = function() {
+      btn.addEventListener("click", function() {
         let evt = new CustomEvent("guess", {detail: {letter: alphabet[i]}, bubbles: true} )
         this.dispatchEvent(evt)
-        this.disabled=true; // makes button unclickable 
-      }
+        this.disabled=true; // makes button unclickable
+      })
     }
     document.querySelector(".gameBoard").addEventListener("guess", handleGuesses, false)
   }
@@ -71,6 +71,21 @@ window.addEventListener('DOMContentLoaded', () => {
     gameObject.word = pair[0]
     gameObject.hint = pair[1]
 
+    fetch("http://localhost:3000/wordHintPair")
+    // Next, call `then()` on the Promise object returned by calling
+    // `fetch()`. `then()` takes a callback function as an argument
+    .then(function (response) {
+      // Callback function processes object
+      return response.json();
+      // parses response (JSON-formatted **string**) into a JavaScript **object**
+    })
+    // The next 'then()' receives parsed JSON object returned form first 'then()'
+    .then(function (data) {
+      // Second callback function performs DOM manipulation using data returned from server
+      console.log(data);
+    });
+
+
     // Displays topic (chosen object) 
     if (chosenObject === wordHintPairs[0]) {
       wordTopic.textContent = "TOPIC: Historical Figures";
@@ -86,14 +101,14 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
 // Hint button ----------------------------------------
-document.getElementById('hint').onclick = function() {
+hint.addEventListener("click", function() {
   clue.textContent = "HINT: " + gameObject.hint;
   document.getElementById("hint").disabled = true; // Hint button can only be clicked once
-}
+})
 // Play again button ----------------------------------------
-  reset.onclick = function() {
+  reset.addEventListener("click", function() {
     initGame();
-  }
+  })
 // Generates blanks for chosen word ----------------------------------------
   function generateResults(letters) {
     let wordHolder = document.getElementById('blanks');
@@ -160,13 +175,19 @@ function gameOver() {
   }
 // Fetches API data (random fact) ----------------------------------------
   function fetchFact() {
+  // Call 'fetch()' and pass the URL to a data source as the argument. 
+  // 'fetch()' returns a Promise object representing datasource sends back
     fetch("https://uselessfacts.jsph.pl/random.json?language=en")
+    // Next, call `then()` on the Promise object returned by calling
+    // `fetch()`. `then()` takes a callback function as an argument
     .then(function (response) {
+      // Callback function processes object
       return response.json();
-      // takes response (JSON-formatted **string**),
-      // and parses it into an actual JavaScript **object**
-    }) 
+      // parses response (JSON-formatted **string**) into a JavaScript **object**
+    })
+    // The next 'then()' receives parsed JSON object returned form first 'then()'
     .then(function (data) {
+      // Second callback function performs DOM manipulation using data returned from server
       myLives.textContent = `You win! Here's your random fact: ` + data[`text`];
     });
   }
