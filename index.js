@@ -70,7 +70,7 @@ window.addEventListener('DOMContentLoaded', () => {
     console.log(pair)
     gameObject.word = pair[0]
     gameObject.hint = pair[1]
-
+/*
     fetch("http://localhost:3000/wordHintPair")
     // Next, call `then()` on the Promise object returned by calling
     // `fetch()`. `then()` takes a callback function as an argument
@@ -84,7 +84,7 @@ window.addEventListener('DOMContentLoaded', () => {
       // Second callback function performs DOM manipulation using data returned from server
       console.log(data);
     });
-
+*/
 
     // Displays topic (chosen object) 
     if (chosenObject === wordHintPairs[0]) {
