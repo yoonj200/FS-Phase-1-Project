@@ -41,70 +41,37 @@ window.addEventListener('DOMContentLoaded', () => {
   generateLetters();
 // Randomly selects word & hint ----------------------------------------
   function selectWord() {
-    const wordHintPairs = [
-      {
-        "cleopatra": "The last true pharaoh of Egypt",
-        "napolean-bonaparte": "French Emperor from 1804 to 1814",
-        "marcus-aurelius": "A stoic philosopher and Roman emperor",
-        "abraham-lincoln": "16th President of the United States of America",
-        "grace-kelly": "20th-century American actress who became the Princess of Monaco"
-      },
-      {
-        "alien": "1979 Sci-fi horror film",
-        "dirty-harry": "\"Go ahead. Make my day.\"",
-        "the-matrix": "\"Ignorance is bliss.\"",
-        "finding-nemo": "\"Fish are friends, not food.\"",
-        "forrest-gump": "\"What's normal anyways?\""
-      },
-      {
-        "taipei": "Known for its Shilin market",
-        "milan": "The global capital of fashion and design",
-        "madrid": "Home of the Prado Museum",
-        "amsterdam": "Home of the Van Gogh Museum",
-        "prague": "Known for its medieval Astronomical Clock"
-      }
-    ]
-    let chosenObject = wordHintPairs[Math.floor(Math.random() * wordHintPairs.length)]
-    let pairs = Object.entries(chosenObject)
-    let pair = pairs[Math.floor(Math.random() * pairs.length)]
-    console.log(pair)
-    gameObject.word = pair[0]
-    gameObject.hint = pair[1]
-/*
     fetch("http://localhost:3000/wordHintPair")
-    // Next, call `then()` on the Promise object returned by calling
-    // `fetch()`. `then()` takes a callback function as an argument
     .then(function (response) {
-      // Callback function processes object
       return response.json();
-      // parses response (JSON-formatted **string**) into a JavaScript **object**
     })
-    // The next 'then()' receives parsed JSON object returned form first 'then()'
     .then(function (data) {
-      // Second callback function performs DOM manipulation using data returned from server
-      console.log(data);
-    });
-*/
+      let wordHintPairs = data;
+      let chosenObject = wordHintPairs[Math.floor(Math.random() * wordHintPairs.length)]
+      let pairs = Object.entries(chosenObject)
+      let pair = pairs[Math.floor(Math.random() * pairs.length)]
+      console.log(pair)
+      gameObject.word = pair[0]
+      gameObject.hint = pair[1]
 
-    // Displays topic (chosen object) 
-    if (chosenObject === wordHintPairs[0]) {
-      wordTopic.textContent = "TOPIC: Historical Figures";
-        console.log("TOPIC: Historical Figures")
-    } else if (chosenObject === wordHintPairs[1]) {
-      wordTopic.textContent = "TOPIC: Films";
-        console.log("TOPIC: Films")
-    } else if (chosenObject === wordHintPairs[2]) {
-      wordTopic.textContent = "TOPIC: Cities";
-        console.log("TOPIC: Cities")
-    } 
-    generateResults(gameObject.word);
+      if (chosenObject === wordHintPairs[0]) {
+        wordTopic.textContent = "TOPIC: Historical Figures";
+          console.log("TOPIC: Historical Figures")
+      } else if (chosenObject === wordHintPairs[1]) {
+        wordTopic.textContent = "TOPIC: Films";
+          console.log("TOPIC: Films")
+      } else if (chosenObject === wordHintPairs[2]) {
+        wordTopic.textContent = "TOPIC: Cities";
+          console.log("TOPIC: Cities")
+      } 
+      generateResults(gameObject.word);
+    })
   }
-
 // Hint button ----------------------------------------
-hint.addEventListener("click", function() {
-  clue.textContent = "HINT: " + gameObject.hint;
-  document.getElementById("hint").disabled = true; // Hint button can only be clicked once
-})
+  hint.addEventListener("click", function() {
+    clue.textContent = "HINT: " + gameObject.hint;
+    document.getElementById("hint").disabled = true; // Hint button can only be clicked once
+  })
 // Play again button ----------------------------------------
   reset.addEventListener("click", function() {
     initGame();

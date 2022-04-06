@@ -1,28 +1,28 @@
- {
-     "wordHintPair": [
-        { 
-            "id": 1,
-            "cleopatra": "The last true pharaoh of Egypt",
-            "napolean-bonaparte": "French Emperor from 1804 to 1814",
-            "marcus-aurelius": "A stoic philosopher and Roman emperor",
-            "abraham-lincoln": "16th President of the United States of America",
-            "grace-kelly": "20th-century American actress who became the Princess of Monaco"
-        },
-        {
-            "id": 2,
-            "alien": "1979 Sci-fi horror film",
-            "dirty-harry": "\"Go ahead. Make my day.\"",
-            "the-matrix": "\"Ignorance is bliss.\"",
-            "finding-nemo": "\"Fish are friends, not food.\"",
-            "forrest-gump": "\"What's normal anyways?\""
-        },
-        {
-            "id": 3,
-            "taipei": "Known for its Shilin market",
-            "milan": "The global capital of fashion and design",
-            "madrid": "Home of the Prado Museum",
-            "amsterdam": "Home of the Van Gogh Museum",
-            "prague": "Known for its medieval Astronomical Clock"
-        }
-  ]
+{
+"wordHintPair": [
+    { 
+        "id": 1,
+        "cleopatra": "The last true pharaoh of Egypt",
+        "napolean-bonaparte": "French Emperor from 1804 to 1814",
+        "marcus-aurelius": "A stoic philosopher and Roman emperor",
+        "abraham-lincoln": "16th President of the United States of America",
+        "grace-kelly": "20th-century American actress who became the Princess of Monaco"
+    },
+    {
+        "id": 2,
+        "alien": "1979 Sci-fi horror film",
+        "dirty-harry": "\"Go ahead. Make my day.\"",
+        "the-matrix": "\"Ignorance is bliss.\"",
+        "finding-nemo": "\"Fish are friends, not food.\"",
+        "forrest-gump": "\"What's normal anyways?\""
+    },
+    {
+        "id": 3,
+        "taipei": "Known for its Shilin market",
+        "milan": "The global capital of fashion and design",
+        "madrid": "Home of the Prado Museum",
+        "amsterdam": "Home of the Van Gogh Museum",
+        "prague": "Known for its medieval Astronomical Clock"
+    }
+]
 }
