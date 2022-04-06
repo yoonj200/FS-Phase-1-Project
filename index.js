@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded', () => {
       btn.addEventListener("click", function() {
         let evt = new CustomEvent("guess", {detail: {letter: alphabet[i]}, bubbles: true} )
         this.dispatchEvent(evt)
-        this.disabled=true; // makes button unclickable
+        this.disabled=true;
       })
     }
     document.querySelector(".gameBoard").addEventListener("guess", handleGuesses, false)
@@ -46,23 +46,27 @@ window.addEventListener('DOMContentLoaded', () => {
       return response.json();
     })
     .then(function (data) {
-      let wordHintPairs = data;
-      let chosenObject = wordHintPairs[Math.floor(Math.random() * wordHintPairs.length)]
-      let pairs = Object.entries(chosenObject)
-      let chosenPair = pairs[Math.floor(Math.random() * pairs.length)]
+      let chosenObject = data[Math.floor(Math.random() * data.length)]
+      let chosenPairs = chosenObject.pairs
+      let chosenPairsIntoArray = Object.entries(chosenPairs) 
+      let chosenPair = chosenPairsIntoArray[Math.floor(Math.random() * chosenPairsIntoArray.length)]
+      // console.log(chosenObject)
+      // console.log(chosenPairs)
+      // console.log(chosenPairsIntoArray)
       console.log(chosenPair)
+      
       gameObject.word = chosenPair[0]
       gameObject.hint = chosenPair[1]
 
-      if (chosenObject === wordHintPairs[0]) {
-        wordTopic.textContent = "TOPIC: Historical Figures";
-          console.log("TOPIC: Historical Figures")
-      } else if (chosenObject === wordHintPairs[1]) {
-        wordTopic.textContent = "TOPIC: Films";
-          console.log("TOPIC: Films")
-      } else if (chosenObject === wordHintPairs[2]) {
-        wordTopic.textContent = "TOPIC: Cities";
-          console.log("TOPIC: Cities")
+      if (chosenObject === data[0]) {
+        wordTopic.textContent = "TOPIC: " + chosenObject.topic;
+        console.log(chosenObject.topic)
+      } else if (chosenObject === data[1]) {
+        wordTopic.textContent = "TOPIC: " + chosenObject.topic;
+        console.log(chosenObject.topic)
+      } else if (chosenObject === data[2]) {
+        wordTopic.textContent = "TOPIC: " + chosenObject.topic;
+        console.log(chosenObject.topic)
       } 
       generateResults(gameObject.word);
     })
