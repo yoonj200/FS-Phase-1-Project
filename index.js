@@ -49,10 +49,10 @@ window.addEventListener('DOMContentLoaded', () => {
       let wordHintPairs = data;
       let chosenObject = wordHintPairs[Math.floor(Math.random() * wordHintPairs.length)]
       let pairs = Object.entries(chosenObject)
-      let pair = pairs[Math.floor(Math.random() * pairs.length)]
-      console.log(pair)
-      gameObject.word = pair[0]
-      gameObject.hint = pair[1]
+      let chosenPair = pairs[Math.floor(Math.random() * pairs.length)]
+      console.log(chosenPair)
+      gameObject.word = chosenPair[0]
+      gameObject.hint = chosenPair[1]
 
       if (chosenObject === wordHintPairs[0]) {
         wordTopic.textContent = "TOPIC: Historical Figures";
@@ -112,24 +112,24 @@ window.addEventListener('DOMContentLoaded', () => {
       }
   }
 // Game success ----------------------------------------
-function gameSuccess() {
-  let guessListElements = document.querySelectorAll("li.guess")
-      let checkBlanks = Array.from(guessListElements).filter(element => element.textContent === "_").length
-      if (checkBlanks === 0) {
-        fetchFact()
-        gameOver()
-        document.querySelectorAll(".keyboard .letter").forEach(element => element.disabled=true);
-        document.getElementById("hint").disabled=true;
-      }
-}
-// Game Over ----------------------------------------
-function gameOver() {
-  if (gameObject.myLives < 1) {
-    myLives.textContent = "GAME OVER! Try again!"
-    document.querySelectorAll(".keyboard .letter").forEach(element => element.disabled=true);
-    document.getElementById("hint").disabled=true;
+  function gameSuccess() {
+    let guessListElements = document.querySelectorAll("li.guess")
+        let checkBlanks = Array.from(guessListElements).filter(element => element.textContent === "_").length
+        if (checkBlanks === 0) {
+          fetchFact()
+          gameOver()
+          document.querySelectorAll(".keyboard .letter").forEach(element => element.disabled=true);
+          document.getElementById("hint").disabled=true;
+        }
   }
-}
+// Game Over ----------------------------------------
+  function gameOver() {
+    if (gameObject.myLives < 1) {
+      myLives.textContent = "GAME OVER! Try again!"
+      document.querySelectorAll(".keyboard .letter").forEach(element => element.disabled=true);
+      document.getElementById("hint").disabled=true;
+    }
+  }
 // Finds and stores letter positions ----------------------------------------
   function findAllLetterPositions(haystack, needle) {
     let position = 0;

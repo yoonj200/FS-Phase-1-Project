@@ -14,14 +14,12 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 2.5em;
 }
 .waviy span {
     position: relative;
     display: inline-block;
-    font-size: 40px;
     color: #fff;
-    text-transform: uppercase;
     animation: flip 2s infinite;
     animation-delay: calc(.2s * var(--i))
 }
@@ -29,11 +27,6 @@ h1 {
     0%,80% {
     transform: rotateY(360deg) 
     }
-}
-h1:hover {
-    transition: 250ms;
-    text-shadow: 0.04em 0.04em #fc0049, 0.08em 0.08em #fe8f01,
-    0.12em 0.12em #fdf21f, 0.16em 0.16em #3fdf4b, 0.2em 0.2em #3462fe;
 }
 
 h2 {
@@ -48,12 +41,6 @@ h2:hover {
 #instructions {
     font-size: 1.5em;
     letter-spacing: 1px;
-}
-#instructions:hover {
-    transition: 250ms;
-    text-shadow: 0.04em 0.04em #fc0049, 0.08em 0.08em #fe8f01,
-    0.12em 0.12em #fdf21f, 0.16em 0.16em #3fdf4b, 0.2em 0.2em #3462fe;
-    
 }
 
 .keyboard {
@@ -164,29 +151,14 @@ h2:hover {
     letter-spacing: 1px;
     font-weight: bold;
 }
-#wordTopic:hover{
-    transition: 250ms;
-    text-shadow: 0.04em 0.04em #fc0049, 0.08em 0.08em #fe8f01,
-    0.12em 0.12em #fdf21f, 0.16em 0.16em #3fdf4b, 0.2em 0.2em #3462fe;
-}
 
 #myLives {
     font-size: 1.5em;
     font-weight: bold;
 }
-#myLives:hover {
-    transition: 250ms;
-    text-shadow: 0.04em 0.04em #fc0049, 0.08em 0.08em #fe8f01,
-    0.12em 0.12em #fdf21f, 0.16em 0.16em #3fdf4b, 0.2em 0.2em #3462fe;
-}
 
 #clue {
     font-size: 1.25em;
-}
-#clue:hover {
-    transition: 250ms;
-    text-shadow: 0.04em 0.04em #fc0049, 0.08em 0.08em #fe8f01,
-    0.12em 0.12em #fdf21f, 0.16em 0.16em #3fdf4b, 0.2em 0.2em #3462fe;
 }
 
 .guess:hover {
