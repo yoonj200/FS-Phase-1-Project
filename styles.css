@@ -7,6 +7,27 @@ body {
     font-size: 18px;
 } 
 
+.theme {
+    background-color: white;
+    color: black;
+}
+#themeButton {
+    border-radius: 25px;
+    background: #ffffff00;
+    color: rgb(255, 255, 255);
+    border: solid 1px rgb(255, 255, 255);
+    cursor: pointer;
+    font-size: 1em;
+    padding: 10px 10px;
+    width: 100px;
+    margin: 10px;
+}
+#themeButton:hover {
+    transition: all 250ms ease-in-out;
+    background: #fff;
+    border: solid 1px #fff;
+    color: #000000;
+}
 h1, h2 {
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -19,7 +40,6 @@ h1 {
 .waviy span {
     position: relative;
     display: inline-block;
-    color: #fff;
     animation: flip 2s infinite;
     animation-delay: calc(.2s * var(--i))
 }
@@ -108,8 +128,8 @@ h2:hover {
     border: solid 1px #fff;
     cursor: pointer;
     font-size: 1.2em;
-    padding: 18px 10px;
-    width: 180px;
+    padding: 15px 10px;
+    width: 160px;
     margin: 10px;
 }
 
@@ -132,10 +152,9 @@ h2:hover {
     border: solid 1px #fff;
     cursor: pointer;
     font-size: 1.2em;
-    padding: 18px 10px;
-    width: 180px;
+    padding: 15px 10px;
+    width: 160px;
     margin: 10px;
-    outline: none;
 }
 
 #reset:hover {

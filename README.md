@@ -8,6 +8,7 @@ Everyone should be able to learn something while having fun. If you want to be r
 3. Failure returns a prompt to try again.
 4. Clickable 'Hint' button.
 5. Attempt counter display.
+6. Dark/light mode theme button.
 
 ## **Installation**
 1. Open up the directory where you want to clone this repository.

@@ -28,7 +28,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
       btn.setAttribute('class', 'letter') // <button class="letter"> ... </button>
       btn.appendChild(t);
-      document.querySelector(".keyboard").appendChild(btn); // appends to <div class="keyboard"></div>
+      document.querySelector(".keyboard").appendChild(btn); // appends to class="keyboard"
 
       btn.addEventListener("click", function() {
         let evt = new CustomEvent("guess", {detail: {letter: alphabet[i]}, bubbles: true} )
@@ -154,7 +154,7 @@ window.addEventListener('DOMContentLoaded', () => {
     .then(function (response) {
       // Callback function processes object
       return response.json();
-      // parses response (JSON-formatted **string**) into a JavaScript **object**
+      // parses response (JSON-formatted **string**) into JS **object**
     })
     // The next 'then()' receives parsed JSON object returned form first 'then()'
     .then(function (data) {
@@ -162,4 +162,14 @@ window.addEventListener('DOMContentLoaded', () => {
       myLives.textContent = `You win! Here's your random fact: ` + data[`text`];
     });
   }
+// Theme button ----------------------------------------
+let themeButton = document.createElement('button');
+themeButton.setAttribute('id', 'themeButton');
+themeButton.innerText = "Theme";
+document.body.appendChild(themeButton);
+
+themeButton.addEventListener('click', function() {
+  document.body.classList.toggle('theme');
+})
+
 })
