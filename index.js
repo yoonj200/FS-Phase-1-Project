@@ -163,13 +163,13 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 // Theme button ----------------------------------------
-let themeButton = document.createElement('button');
-themeButton.setAttribute('id', 'themeButton');
-themeButton.innerText = "Theme";
-document.body.appendChild(themeButton);
+  let themeButton = document.createElement('button');
+  themeButton.setAttribute('id', 'themeButton');
+  themeButton.innerText = "Theme";
+  document.body.appendChild(themeButton);
 
-themeButton.addEventListener('click', function() {
-  document.body.classList.toggle('theme');
-})
+  themeButton.addEventListener('click', function() {
+    document.body.classList.toggle('theme');
+  })
 
 })
