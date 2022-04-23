@@ -1,9 +1,21 @@
-const gameObject = {
-  word:'',
-  hint:'',
-  storedGuesses: [],
-  myLives: 5
-};
+// make gameObject an actual class
+// make every reference to gameObject a call on a member function
+
+// const gameObject = {
+//   word:'',
+//   hint:'',
+//   storedGuesses: [],
+//   myLives: 5
+// };
+class gameObject {
+  // constructor(word, hint, storedGuesses, myLives) {
+  constructor() {
+    this.word = '',
+    this.hint = '',
+    this.storedGuesses = [],
+    this.myLives = 5
+  }
+}
 
 const initGame = () => {
   clue.textContent = 'Need a Hint? Click the Hint button!';
@@ -28,8 +40,14 @@ const selectWord = () => {
     let chosenPair = chosenPairsIntoArray[Math.floor(Math.random() * chosenPairsIntoArray.length)]
     console.log(chosenPair)
     
-    gameObject.word = chosenPair[0]
-    gameObject.hint = chosenPair[1]
+    // gameObject.word = chosenPair[0]
+    // gameObject.hint = chosenPair[1]
+
+    const updateHint = (chosenPair) => {
+      this.word = chosenPair[0]
+      this.word = chosenPair[1]
+    }
+    updateHint();
 
     wordTopic.textContent = 'TOPIC: ' + chosenObject.topic;
     console.log(chosenObject.topic)
@@ -139,13 +157,13 @@ window.addEventListener('DOMContentLoaded', () => {
     initGame();
   })
   
-  // const themeButton = document.createElement('button');
-  // themeButton.setAttribute('id', 'themeButton');
-  // themeButton.innerText = 'Theme';
-  // document.body.appendChild(themeButton);
+  const themeButton = document.createElement('button');
+  themeButton.setAttribute('id', 'themeButton');
+  themeButton.innerText = 'Theme';
+  document.body.appendChild(themeButton);
 
-  let expandingList = document.createElement('ul', { is : 'expanding-list' })
-  document.createElement('button', { 'id' : 'themeButton', 'innerText' : 'Theme' })
+  // let expandingList = document.createElement('ul', { is : 'expanding-list' })
+  // document.createElement('button', { 'id' : 'themeButton', 'innerText' : 'Theme' })
 
   themeButton.addEventListener('click', () => {
     document.body.classList.toggle('theme');
