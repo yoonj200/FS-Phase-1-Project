@@ -1,21 +1,9 @@
-// make gameObject an actual class
-// make every reference to gameObject a call on a member function
-
-// const gameObject = {
-//   word:'',
-//   hint:'',
-//   storedGuesses: [],
-//   myLives: 5
-// };
-class gameObject {
-  // constructor(word, hint, storedGuesses, myLives) {
-  constructor() {
-    this.word = '',
-    this.hint = '',
-    this.storedGuesses = [],
-    this.myLives = 5
-  }
-}
+const gameObject = {
+  word:'',
+  hint:'',
+  storedGuesses: [],
+  myLives: 5
+};
 
 const initGame = () => {
   clue.textContent = 'Need a Hint? Click the Hint button!';
@@ -30,24 +18,18 @@ const initGame = () => {
 
 const selectWord = () => {
   fetch('http://localhost:3000/wordHintPair')
-  .then(function (response) {
+  .then( (response) => {
     return response.json();
   })
-  .then(function (data) {
+  .then( (data) => {
     let chosenObject = data[Math.floor(Math.random() * data.length)]
     let chosenPairs = chosenObject.pairs
     let chosenPairsIntoArray = Object.entries(chosenPairs) 
     let chosenPair = chosenPairsIntoArray[Math.floor(Math.random() * chosenPairsIntoArray.length)]
     console.log(chosenPair)
     
-    // gameObject.word = chosenPair[0]
-    // gameObject.hint = chosenPair[1]
-
-    const updateHint = (chosenPair) => {
-      this.word = chosenPair[0]
-      this.word = chosenPair[1]
-    }
-    updateHint();
+    gameObject.word = chosenPair[0]
+    gameObject.hint = chosenPair[1]
 
     wordTopic.textContent = 'TOPIC: ' + chosenObject.topic;
     console.log(chosenObject.topic)
@@ -87,7 +69,7 @@ const generateLetters = () => {
     btn.addEventListener('click', function() {
       let evt = new CustomEvent('guess', {detail: {letter: letter}, bubbles: true} )
       this.dispatchEvent(evt);
-      this.disabled=true;
+      this.disabled = true;
     })
   })
   document.querySelector('.gameBoard').addEventListener('guess', handleGuesses, false)
@@ -162,12 +144,8 @@ window.addEventListener('DOMContentLoaded', () => {
   themeButton.innerText = 'Theme';
   document.body.appendChild(themeButton);
 
-  // let expandingList = document.createElement('ul', { is : 'expanding-list' })
-  // document.createElement('button', { 'id' : 'themeButton', 'innerText' : 'Theme' })
-
   themeButton.addEventListener('click', () => {
     document.body.classList.toggle('theme');
   })
 
-   
 })
